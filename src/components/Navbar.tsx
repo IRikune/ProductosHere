@@ -6,7 +6,7 @@ export function Navbar() {
             <ul class="flex justify-between uppercase text-sm">
                 <div class="flex items-center gap-5 font-light">
 
-                    <NavbarItem href="#">FAQS</NavbarItem>
+                    <NavbarItem href="#">Preguntas</NavbarItem>
                     <NavbarItem href="#">Nosotros</NavbarItem>
                 </div>
                 <div>
@@ -15,12 +15,8 @@ export function Navbar() {
                     </a>
                 </div>
                 <div class="flex items-center gap-5 font-light">
-                    <li>
-                        <a href="#">Productos</a>
-                    </li>
-                    <li>
-                        <a href="#">Unirse ahora</a>
-                    </li>
+                    <NavbarItem href="#">Productos</NavbarItem>
+                    <NavbarItem href="#">Unirse ahora</NavbarItem>
                 </div>
             </ul>
         </nav>
@@ -35,7 +31,9 @@ type NavbarItemProps = {
 function NavbarItem({ href, children }: NavbarItemProps) {
     return (
         <li>
-            <a href={href}>{children}</a>
+            <a
+                class="relative before:absolute before:-bottom-1 before:w-0 before:h-px before:bg-black hover:before:w-full before:transition-all before:duration-300"
+                href={href}>{children}</a>
         </li>
     )
 }
