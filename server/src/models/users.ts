@@ -28,10 +28,12 @@ export async function createUser(user: User) {
 
 export async function getUser(userID: User["id"]) {
   const primaryKey = ["users", userID]
-  const res = await kv.get(primaryKey)
+  const res = await kv.get<User>(primaryKey)
   if (!res.versionstamp) {
     throw new TypeError("User not registered")
   }
+  const user = res.value
+  return user
 }
 
 export async function updateUser(user: User) {
