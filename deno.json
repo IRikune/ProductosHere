@@ -2,9 +2,7 @@
   "tasks": {
     "dev": "deno run --watch main.ts"
   },
-  "workspace": [
-    
-  ],
+  "workspace": ["./server"],
   "imports": {
     "@std/assert": "jsr:@std/assert@1"
   }
