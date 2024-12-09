@@ -32,8 +32,7 @@ export async function getUser(userID: User["id"]) {
   if (!res.versionstamp) {
     throw new TypeError("User not registered")
   }
-  const user = res.value
-  return user
+  return res.value
 }
 
 export async function updateUser(user: User) {
