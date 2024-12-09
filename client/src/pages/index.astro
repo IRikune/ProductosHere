@@ -4,8 +4,23 @@ import { Button } from "../components/Button";
 ---
 
 <Layout>
-	<Button type="underline">Underline</Button>
-	<Button type="filled">Filled</Button>
-	<Button type="outlined">Outlined</Button>
-	<h1 class="text-4xl mt-[110dvh]">Hello, world!</h1>
+	<header class="h-[80dvh] flex justify-center items-center">
+		<section class="w-1/3">
+			<h2 class="relative text-5xl font-extrabold font-drawed">
+				<span class="block">Los productos</span>
+				<span>para tu emprendimiento</span>
+			</h2>
+			<p class="text-balance mt-5 text-lg">
+				Con ProductosHere tendrás los productos de mejor calidad para tu
+				emprendimiento. Y lo mejor, a crédito.
+			</p>
+			<footer class="mt-10">
+				<Button type="outlined" to="/login">Iniciar Sesión</Button>
+				<Button type="filled" to="/signup">Registrarse</Button>
+			</footer>
+		</section>
+		<aside class="w-96">
+			<img src="../../public/cat.png" alt="cat" />
+		</aside>
+	</header>
 </Layout>
