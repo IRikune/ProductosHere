@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import { Decoration } from "../components/Decoration";
 import { Button } from "../components/Button";
 ---
 
@@ -9,8 +10,11 @@ import { Button } from "../components/Button";
 			<h2 class="relative text-5xl font-extrabold font-drawed">
 				<span class="block">Los productos</span>
 				<span>para tu emprendimiento</span>
+				<div class="ml-20">
+					<Decoration type="underlined" variation={1} />
+				</div>
 			</h2>
-			<p class="text-balance mt-5 text-lg">
+			<p class="text-balance mt-2 text-lg">
 				Con ProductosHere tendrás los productos de mejor calidad para tu
 				emprendimiento. Y lo mejor, a crédito.
 			</p>
@@ -19,8 +23,19 @@ import { Button } from "../components/Button";
 				<Button type="filled" to="/signup">Registrarse</Button>
 			</footer>
 		</section>
-		<aside class="w-96">
+		<aside class="w-96 relative">
+			<div class="-mt-10 ml-10 absolute">
+				<Decoration type="highlighted" variation={1} />
+			</div>
+
 			<img src="../../public/cat.png" alt="cat" />
 		</aside>
+		<div class="absolute bottom-0 mb-10">
+			<Decoration
+				type="underlined"
+				variation={2}
+				className="fill-black"
+			/>
+		</div>
 	</header>
 </Layout>
