@@ -1,8 +1,9 @@
 ---
 import Logo from "./Logo.astro";
+import { Button } from "./Button";
 ---
 
-<nav class="bg-red-300">
+<nav>
     <ul class="flex justify-between items-center p-4">
         <div>
             <a href="/">
@@ -10,9 +11,9 @@ import Logo from "./Logo.astro";
             </a>
         </div>
         <div>
-            <a href="/">¿Quienes somos?</a>
-            <a href="/login">Iniciar Sesión</a>
-            <a href="/signup">Registrarse</a>
+            <Button to="/">¿Quienes somos?</Button>
+            <Button type="outlined" to="/login">Iniciar Sesión</Button>
+            <Button type="filled" to="/signup">Registrarse</Button>
         </div>
     </ul>
 </nav>
