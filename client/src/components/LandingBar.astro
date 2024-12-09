@@ -3,8 +3,8 @@ import Logo from "./Logo.astro";
 import { Button } from "./Button";
 ---
 
-<nav>
-    <ul class="flex justify-between items-center p-4">
+<nav class="sticky top-0 z-50 font-light">
+    <ul class="flex justify-between items-center py-5 px-10">
         <div>
             <a href="/">
                 <Logo />
@@ -13,7 +13,9 @@ import { Button } from "./Button";
         <div>
             <Button to="/">¿Quienes somos?</Button>
             <Button type="outlined" to="/login">Iniciar Sesión</Button>
-            <Button type="filled" to="/signup">Registrarse</Button>
+            <Button className="rounded-full" type="filled" to="/signup"
+                >Registrarse
+            </Button>
         </div>
     </ul>
 </nav>

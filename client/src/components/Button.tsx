@@ -23,7 +23,7 @@ export function Button({ type = "underline", to, children, className }: Props) {
         return (
             <Tag
                 href={to}
-                className={`text-white border-transparent border-2 rounded bg-black px-4 py-2 ${className}`}>
+                className={`text-white border-transparent border-2 rounded bg-black px-4 py-2 hover:bg-transparent hover:border-black transition-all duration-300 hover:text-black ${className}`}>
                 {children}
             </Tag>);
     }
@@ -31,7 +31,7 @@ export function Button({ type = "underline", to, children, className }: Props) {
         return (
             <Tag
                 href={to}
-                className={`border-black border-2 rounded bg-transparent px-4 py-2 ${className}`}>
+                className={`border-black border-2 rounded bg-transparent px-4 py-2 hover:bg-black transition-all duration-300 hover:text-white ${className}`}>
                 {children}
             </Tag>);
     }
