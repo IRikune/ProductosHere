@@ -4,7 +4,6 @@ interface Props {
     variation?: 1 | 2 | 3 | 4
     className?: string
 }
-
 export const Decoration = ({ type = "underlined", variation = 1, className }: Props) => {
 
     if (type === "underlined" && variation === 1) {
