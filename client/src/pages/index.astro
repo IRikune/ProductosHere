@@ -46,10 +46,33 @@ import { Button } from "../components/Button";
 		class="w-dvw h-10 mt-5 bg-gradient-to-b from-white to-black separator blur-2xl"
 	>
 	</div>
-	<section class="bg-black h-dvh text-white">
-		<div class="flex justify-center items-center flex-col">
+	<section class="bg-black text-white">
+		<div
+			class="flex justify-center items-center flex-col sticky top-0 left-0 z-10"
+		>
 			<h1 class="mt-10 mb-2 font-drawed text-5xl">¿Cómo trabajamos?</h1>
 			<Decoration className="w-80" variation={2} />
 		</div>
+		<main class="flex justify-around">
+			<aside>
+				<article class="bg-white p-10 rounded-xl">
+					<h1>Hola</h1>
+				</article>
+				<article class="bg-white p-10 rounded-xl my-[100dvh]">
+					<h1>Hola 2</h1>
+				</article>
+				<article class="bg-white p-10 rounded-xl">
+					<h1>Hola 3</h1>
+				</article>
+			</aside>
+			<div>
+				<img
+					class="max-w-md sticky top-28 left-0"
+					src="../../public/frog.png"
+					alt="frog"
+				/>
+			</div>
+		</main>
 	</section>
+	<section class="h-dvh bg-black text-white"></section>
 </Layout>
