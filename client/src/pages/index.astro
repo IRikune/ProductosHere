@@ -29,7 +29,7 @@ import { Button } from "../components/Button";
 		</section>
 		<aside class="w-96 relative">
 			<div class="-mt-10 ml-10 absolute">
-				<Decoration type="highlighted" variation={1} />
+				<Decoration className="w-20" type="highlighted" variation={1} />
 			</div>
 
 			<img src="../../public/cat.png" alt="cat" />
@@ -38,7 +38,7 @@ import { Button } from "../components/Button";
 			<Decoration
 				type="underlined"
 				variation={2}
-				className="fill-black"
+				className="fill-black w-96"
 			/>
 		</div>
 	</header>
@@ -47,9 +47,9 @@ import { Button } from "../components/Button";
 	>
 	</div>
 	<section class="bg-black h-dvh text-white">
-		<div>
-			<h1 class="">¿Cómo trabajamos?</h1>
-			<Decoration variation={2} />
+		<div class="flex justify-center items-center flex-col">
+			<h1 class="mt-10">¿Cómo trabajamos?</h1>
+			<Decoration className="w-96" variation={2} />
 		</div>
 	</section>
 </Layout>
