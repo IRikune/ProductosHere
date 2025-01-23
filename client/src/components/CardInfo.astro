@@ -8,15 +8,15 @@ const { class: className } = Astro.props;
 ---
 
 <article class=`rounded-xl flex relative ${className}`>
-    <div class="absolute">
-        <CardBackground class="w-96" />
+    <div class="absolute -z-10">
+        <CardBackground class="w-[29rem]" />
     </div>
-    <p class="w-[32ch] ml-10 mt-12">
-        <slot>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique
-            ullam quisquam ad quae veritatis, maxime vel temporibus maiores,
-            repudiandae cum reprehenderit a inventore voluptatibus quidem
-            tempora eveniet corporis aperiam. Quaerat?
-        </slot>
-    </p>
+    <div class="flex flex-col">
+        <h3 class="ml-24 mt-4 text-xl font-bold font-drawed text-nowrap">
+            <slot name="title" />
+        </h3>
+        <p class="w-[35ch] ml-10 mt-5 text-balance text-lg">
+            <slot name="description" />
+        </p>
+    </div>
 </article>
