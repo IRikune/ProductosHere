@@ -1,13 +1,19 @@
 ---
+interface Props {
+    class: string;
+}
+
 const { class: className } = Astro.props;
 ---
 
 <article class=`border p-10 rounded-xl flex ${className}`>
     <h1 class="max-w-[32ch]">
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur,
-        expedita tempora quam et dolores harum placeat dolore voluptatibus
-        laborum quis recusandae, animi veritatis eaque accusamus optio mollitia
-        nihil odio doloribus.
+        <slot>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique
+            ullam quisquam ad quae veritatis, maxime vel temporibus maiores,
+            repudiandae cum reprehenderit a inventore voluptatibus quidem
+            tempora eveniet corporis aperiam. Quaerat?
+        </slot>
     </h1>
     <svg
         class="w-14"
