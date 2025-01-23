@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Logo from "../components/Logo.astro";
+import { Separator } from "../components/Separator";
 import CardInfo from "../components/CardInfo.astro";
 import { Decoration } from "../components/Decoration";
 import { Button } from "../components/Button";
@@ -44,16 +44,15 @@ import { Button } from "../components/Button";
 			/>
 		</div>
 	</header>
-	<div
-		class="w-dvw h-10 mt-5 bg-gradient-to-b from-white to-black separator blur-2xl"
-	>
+	<div class="w-dvw h-32 mt-32">
+		<Separator class="w-32 h-32" repeat={2} />
 	</div>
 	<section class="">
 		<div
 			class="flex justify-center items-center flex-col sticky top-0 left-0 z-10"
 		>
-			<h1 class="mt-10 mb-2 font-drawed text-5xl">¿Cómo trabajamos?</h1>
-			<Decoration className="w-80" variation={2} />
+			<h1 class="mb-2 font-drawed text-5xl">¿Cómo trabajamos?</h1>
+			<Decoration className="w-80 fill-black" variation={2} />
 		</div>
 		<main class="flex justify-around">
 			<aside>
