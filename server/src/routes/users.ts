@@ -1,13 +1,13 @@
 import { Hono } from "hono"
 import { validator } from "hono/validator"
 import { HTTPException } from "hono/http-exception"
-import { getAllUsers, getUser } from "../models/users.ts"
+import { getManyUsers, getUser } from "../models/users.ts"
 import { idSchema } from "../schemas/users.ts"
 
 export const users = new Hono()
 
 users.get("/", async (c) => {
-  const users = await getAllUsers()
+  const users = await getManyUsers({})
   const res = {
     ok: true,
     response: users,
