@@ -1,6 +1,7 @@
 export interface User {
   id: string
   name: string
+  lastName: string
   email: string
   password: string
   phone: string
@@ -27,11 +28,11 @@ export interface Product {
 export interface Order {
   id: string
   series: string
-  createdAt: string
-  expectedDate: string
+  createdAt: number
+  expectedDate: number
   expectedProducts: Product[]
   expectedAmount: number
-  deliveredDate?: string
+  deliveredDate?: number
   deliveredProducts?: Product[]
   deliveredAmount?: number
   products: Product[]
