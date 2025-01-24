@@ -3,7 +3,7 @@ import { Star, Book, Chats, Stats } from "./Icons";
 import CardBackground from "./CardBackground.astro";
 interface Props {
     class: string;
-    icon?: string;
+    icon?: "star" | "book" | "chats" | "stats";
 }
 
 const { class: className, icon } = Astro.props;
