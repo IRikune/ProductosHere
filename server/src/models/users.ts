@@ -13,8 +13,15 @@ interface DeleteUserOptions {
   userID: User["id"]
   userEmail: User["email"]
 }
+interface KvUsersResult {
+  ok: boolean
+  data?: User | User[]
+}
+type KvUsersResultMaybe = Promise<KvUsersResult>
 
-export async function getAllUsers({ prefix = "" }: GetManyUsersOptions) {
+export async function getAllUsers(
+  { prefix = "" }: GetManyUsersOptions,
+): KvUsersResultMaybe {
   const primaryKey = [...prefix]
   const entries = kv.list<User>({ prefix: primaryKey })
   const users: User[] = []
@@ -22,7 +29,8 @@ export async function getAllUsers({ prefix = "" }: GetManyUsersOptions) {
     const user = entry.value
     users.push(user)
   }
-  if (!users.length) throw new TypeError("No users registered")
+  const res = { ok: true, data: users }
+  return res
 }
 
 export async function createUser(user: User) {
@@ -34,9 +42,7 @@ export async function createUser(user: User) {
     .set(primaryKey, user)
     .set(byEmailKey, user)
     .commit()
-  if (!res.ok) {
-    throw new TypeError("User with ID or email already exists")
-  }
+  return res
 }
 
 export async function getUser(userID: User["id"]) {
