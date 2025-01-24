@@ -16,7 +16,18 @@ const contractSchema = z.object({
   amount: z.number(),
   status: z.string(),
 })
-
+const orderSchema = z.object({
+  id: z.string(),
+  series: z.string(),
+  createdAt: z.number(),
+  expectedDate: z.number(),
+  expectedProducts: productSchema.array(),
+  expectedAmount: z.number(),
+  deliveredDate: z.number().optional(),
+  deliveredProducts: productSchema.array().optional(),
+  deliveredAmount: z.number().optional(),
+  status: z.string(),
+})
 export const userSchema = z.object({
   name: z.string(),
   lastName: z.string(),
@@ -25,16 +36,5 @@ export const userSchema = z.object({
   phone: z.number(),
   directions: z.string().array(),
   contracts: contractSchema.array(),
-  orders: z.object({
-    id: z.string(),
-    series: z.string(),
-    createdAt: z.number(),
-    expectedDate: z.number(),
-    expectedProducts: productSchema.array(),
-    expectedAmount: z.number(),
-    deliveredDate: z.number().optional(),
-    deliveredProducts: productSchema.array().optional(),
-    deliveredAmount: z.number().optional(),
-    status: z.string(),
-  }),
+  orders: orderSchema.array(),
 })
