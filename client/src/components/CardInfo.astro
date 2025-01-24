@@ -14,15 +14,23 @@ const { class: className, icon } = Astro.props;
         <CardBackground class="w-[29rem]" />
     </div>
     <div class="flex flex-col">
-        <h3 class="ml-24 mt-4 text-xl font-bold font-drawed text-nowrap">
+        <h3 class="ml-28 mt-4 text-xl font-bold font-drawed text-nowrap">
             <slot name="title" />
         </h3>
         <p class="w-[35ch] ml-10 mt-5 text-balance text-lg">
             <slot name="description" />
         </p>
-        {icon === "star" && <Star class="w-24 h-24 fill-black" />}
-        {icon === "book" && <Book class="w-24 h-24 fill-black" />}
-        {icon === "chats" && <Chats class="w-24 h-24 fill-black" />}
-        {icon === "stats" && <Stats class="w-24 h-24 fill-black" />}
+        {icon === "star" && <Star className="w-28 h-28 fill-black self-end" />}
+        {icon === "book" && <Book className="w-28 h-28 fill-black self-end" />}
+        {
+            icon === "chats" && (
+                <Chats className="w-28 h-28 fill-black self-end" />
+            )
+        }
+        {
+            icon === "stats" && (
+                <Stats className="w-28 h-28 fill-black self-end" />
+            )
+        }
     </div>
 </article>
