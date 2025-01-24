@@ -29,7 +29,7 @@ export async function getManyUsers(
     const user = entry.value
     users.push(user)
   }
-  const res = { ok: true, data: users }
+  const res: KvUsersResult = { ok: true, data: users }
   return res
 }
 
@@ -48,7 +48,7 @@ export async function createUser(user: User): KvUsersResultMaybe {
 export async function getUser(userID: User["id"]): KvUsersResultMaybe {
   const primaryKey = ["users", userID]
   const user = await kv.get<User>(primaryKey)
-  const response = { ok: true, ...user }
+  const response: KvUsersResult = { ok: true, ...user }
   return response
 }
 
@@ -57,7 +57,7 @@ export async function updateUser(
 ): KvUsersResultMaybe {
   const primaryKey = ["user", userID]
   const byEmailKey = ["user", "email", userEmail]
-  const res = await kv.atomic()
+  const res: KvUsersResult = await kv.atomic()
     .set(primaryKey, newUser)
     .set(byEmailKey, newUser)
     .commit()
@@ -68,7 +68,7 @@ export async function deleteUser(
 ): KvUsersResultMaybe {
   const primaryKey = ["user", userID]
   const byEmailKey = ["user", "email", userEmail]
-  const res = await kv.atomic()
+  const res: KvUsersResult = await kv.atomic()
     .check({ key: primaryKey, versionstamp: null })
     .check({ key: byEmailKey, versionstamp: null })
     .delete(primaryKey)
