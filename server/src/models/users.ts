@@ -48,9 +48,6 @@ export async function createUser(user: User): KvUsersResultMaybe {
 export async function getUser(userID: User["id"]): KvUsersResultMaybe {
   const primaryKey = ["users", userID]
   const user = await kv.get<User>(primaryKey)
-  if (!user.versionstamp) {
-    throw new TypeError("User not registered")
-  }
   const response = { ok: true, ...user }
   return response
 }
@@ -64,9 +61,6 @@ export async function updateUser(
     .set(primaryKey, newUser)
     .set(byEmailKey, newUser)
     .commit()
-  if (!res.ok) {
-    throw new TypeError("User with ID or email not in exists")
-  }
   return res
 }
 export async function deleteUser(
@@ -80,8 +74,5 @@ export async function deleteUser(
     .delete(primaryKey)
     .delete(byEmailKey)
     .commit()
-  if (!res.ok) {
-    throw new TypeError("User with ID or email not in exists")
-  }
   return res
 }
