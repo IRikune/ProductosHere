@@ -35,6 +35,5 @@ export interface Order {
   deliveredDate?: number
   deliveredProducts?: Product[]
   deliveredAmount?: number
-  products: Product[]
   status: "pending" | "delivered" | "cancelled"
 }
