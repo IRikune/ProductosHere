@@ -1,11 +1,16 @@
 import { kv } from "../../mod.ts"
 import type { User } from "../types/mod.ts"
 
-interface GetManyUsers {
+interface GetManyUsersOptions {
   prefix?: string
 }
+interface UpdateUsersOptions {
+  userID: User["id"]
+  userEmail: User["email"]
+  newUser: User
+}
 
-export async function getAllUsers({ prefix = "" }: GetManyUsers) {
+export async function getAllUsers({ prefix = "" }: GetManyUsersOptions) {
   const primaryKey = [...prefix]
   const entries = kv.list<User>({ prefix: primaryKey })
   const users: User[] = []
@@ -39,12 +44,14 @@ export async function getUser(userID: User["id"]) {
   return res.value
 }
 
-export async function updateUser(user: User) {
-  const primaryKey = ["user", user.id]
-  const byEmailKey = ["user", "email", user.email]
+export async function updateUser(
+  { userEmail, userID, newUser }: UpdateUsersOptions,
+) {
+  const primaryKey = ["user", userID]
+  const byEmailKey = ["user", "email", userEmail]
   const res = await kv.atomic()
-    .set(primaryKey, user)
-    .set(byEmailKey, user)
+    .set(primaryKey, newUser)
+    .set(byEmailKey, newUser)
     .commit()
   if (!res.ok) {
     throw new TypeError("User with ID or email not in exists")
