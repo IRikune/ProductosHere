@@ -1,10 +1,14 @@
 import { kv } from "../../mod.ts"
 import type { User } from "../types/mod.ts"
 
-export async function getAllUsers() {
-  const primaryKey = [""]
-  const entries = kv.list({ prefix: primaryKey })
-  const users = []
+interface GetManyUsers {
+  prefix?: string
+}
+
+export async function getAllUsers({ prefix = "" }: GetManyUsers) {
+  const primaryKey = [...prefix]
+  const entries = kv.list<User>({ prefix: primaryKey })
+  const users: User[] = []
   for await (const entry of entries) {
     const user = entry.value
     users.push(user)
