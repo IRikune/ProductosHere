@@ -1,0 +1,134 @@
+@keyframes slide {
+    from {
+        left: -100dvw;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: -100dvw;
+    }
+}
+
+@keyframes middeBarOpen {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes topBarOpen {
+    0% {
+        top: 0;
+    }
+
+    70% {
+        top: .7rem;
+        transform: rotate(0);
+    }
+
+    100% {
+        top: .7rem;
+        transform: rotate(45deg);
+    }
+}
+
+@keyframes bottomBarOpen {
+    0% {
+        bottom: 0;
+    }
+
+    70% {
+        bottom: .7rem;
+        transform: rotate(0);
+    }
+
+    100% {
+        bottom: .7rem;
+        transform: rotate(-45deg);
+    }
+}
+
+@keyframes topBarClose {
+    0% {
+        top: .7rem;
+        transform: rotate(45deg);
+    }
+
+    70% {
+        top: .7rem;
+        transform: rotate(0);
+    }
+
+    100% {
+        top: 0;
+    }
+}
+
+@keyframes bottomBarClose {
+    0% {
+        bottom: .7rem;
+        transform: rotate(-45deg);
+    }
+
+    70% {
+        bottom: .7rem;
+        transform: rotate(0);
+    }
+
+    100% {
+        bottom: 0;
+    }
+}
+
+@keyframes middleBarClose {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0;
+    }
+}
+
+.animation-slide {
+    transition: none;
+    animation: slide 0.5s forwards ease-out;
+}
+
+.animation-slide-out {
+    animation: slideOut 0.5s forwards ease-out;
+}
+
+.animation-middle-bar-open {
+    animation: middeBarOpen .5s forwards ease-out;
+}
+
+.animation-top-bar-open {
+    animation: topBarOpen .5s forwards ease-out;
+    animation-delay: .5s;
+}
+
+.animation-bottom-bar-open {
+    animation: bottomBarOpen .5s forwards ease-out;
+    animation-delay: .5s;
+}
+
+.animation-top-bar-close {
+    animation: topBarClose .5s forwards ease-out;
+}
+
+.animation-bottom-bar-close {
+    animation: bottomBarClose .5s forwards ease-out;
+}
