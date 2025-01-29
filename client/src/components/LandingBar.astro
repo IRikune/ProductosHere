@@ -3,19 +3,22 @@ import Logo from "./Logo.astro";
 import { Button } from "./Button";
 ---
 
-<nav class="sticky top-0 z-50 font-light mx-20">
+<nav class="sticky top-0 z-50 font-light md:mx-20">
     <ul class="flex justify-between items-center py-5 px-10">
         <div>
             <a href="/">
                 <Logo />
             </a>
         </div>
-        <div>
+        <div class="hidden md:block">
             <Button to="/">¿Quienes somos?</Button>
             <Button type="outlined" to="/login">Iniciar Sesión</Button>
-            <Button className="rounded-full" type="filled" to="/signup"
+            <Button className="" type="filled" to="/signup"
                 >Registrarse
             </Button>
+        </div>
+        <div class="md:hidden">
+            <h1>Burger</h1>
         </div>
     </ul>
 </nav>
