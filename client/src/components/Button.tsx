@@ -1,9 +1,9 @@
-
+import type { ReactElement } from "react";
 
 interface Props {
     type?: "underline" | "filled" | "outlined";
     to?: string;
-    children?: any;
+    children?: ReactElement;
     className?: string;
 }
 
@@ -37,4 +37,8 @@ export function Button({ type = "underline", to, children, className }: Props) {
     }
 
     return <Tag>Hello</Tag>;
+}
+
+export function BurguerButton() {
+    return
 }
