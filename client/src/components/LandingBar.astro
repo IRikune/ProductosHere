@@ -1,6 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import { Button } from "./Button";
+import { BurgerButton } from "./BurgerButton";
 ---
 
 <nav class="sticky top-0 z-50 font-light md:mx-20">
@@ -18,7 +19,7 @@ import { Button } from "./Button";
             </Button>
         </div>
         <div class="md:hidden">
-            <h1>Burger</h1>
+            <BurgerButton client:idle />
         </div>
     </ul>
 </nav>
