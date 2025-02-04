@@ -3,6 +3,8 @@
 @theme {
     --font-drawed: "Amatic SC", sans-serif;
     --animate-wiggle: wiggle 1.5s ease-in-out infinite;
+    --animate-starting: presentation 7s ease-out forwards;
+    --animate-pulse-2: pulse-2 2s ease-in-out infinite;
 
     @keyframes wiggle {
 
@@ -15,4 +17,37 @@
             transform: rotate(3deg);
         }
     }
+
+    /* animation to appear */
+    @keyframes presentation {
+        0% {
+            opacity: 0;
+            display: none;
+        }
+
+        50% {
+            opacity: 1;
+            display: block;
+        }
+
+        100% {
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    @keyframes pulse-2 {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.1);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
 }
