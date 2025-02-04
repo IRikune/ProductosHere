@@ -1,0 +1,57 @@
+---
+import "@fontsource/amatic-sc";
+import "../assets/global.css";
+import Logo from "../components/Logo.astro";
+import { LovingDoodle } from "../components/doodles/LovingDoodle";
+import { Sparkles } from "../components/decorations/Sparkles";
+import { Loop } from "../components/decorations/Loop";
+import { TreeArrows } from "../components/decorations/TreeArrows";
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>Astro Basics</title>
+    </head>
+    <body>
+        <main
+            class="w-dvw h-dvh flex justify-center items-center flex-col relative"
+        >
+            <Sparkles
+                className="w-64 h-64 animate-pulse absolute top-10 left-10 fill-neutral-400"
+            />
+            <Sparkles
+                className="w-64 h-64 absolute bottom-10 right-10 fill-neutral-400"
+            />
+            <Loop
+                className="w-96 h-96 absolute top-0 right-0 fill-neutral-400"
+            />
+
+            <TreeArrows
+                className="w-48 h-48 absolute bottom-10 left-10 fill-neutral-400"
+            />
+
+            <section class="font-drawed text-center">
+                <Logo class="text-6xl" />
+                <LovingDoodle className="animate-wiggle" />
+                <h2 class="text-4xl">¿Te quieres unir a nosotros?</h2>
+                <h3 class="text-5xl">¡Bienvenido!</h3>
+            </section>
+            <slot />
+        </main>
+    </body>
+</html>
+
+<style>
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f4f2ed;
+    }
+</style>
