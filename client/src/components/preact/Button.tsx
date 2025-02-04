@@ -4,10 +4,10 @@ interface Props {
     type?: "underline" | "filled" | "outlined";
     to?: string;
     children?: ComponentChildren;
-    className?: string;
+    class?: string;
 }
 
-export function Button({ type = "underline", to, children, className }: Props) {
+export function Button({ type = "underline", to, children, class: className }: Props) {
     const Tag = to ? "a" : "button";
     const styles = {
         underline: 'relative px-2 before:content-[""] before:absolute before:-bottom-1 before:left-0 before:w-0 before:h-[2px] before:rounded-full before:duration-300 before:transition-all before:bg-black hover:before:w-full',

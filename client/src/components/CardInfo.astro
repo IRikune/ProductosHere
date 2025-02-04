@@ -20,17 +20,9 @@ const { class: className, icon } = Astro.props;
         <p class="w-[35ch] ml-10 mt-5 text-balance text-lg">
             <slot name="description" />
         </p>
-        {icon === "star" && <Star className="w-28 h-28 fill-black self-end" />}
-        {icon === "book" && <Book className="w-28 h-28 fill-black self-end" />}
-        {
-            icon === "chats" && (
-                <Chats className="w-28 h-28 fill-black self-end" />
-            )
-        }
-        {
-            icon === "stats" && (
-                <Stats className="w-28 h-28 fill-black self-end" />
-            )
-        }
+        {icon === "star" && <Star class="w-28 h-28 fill-black self-end" />}
+        {icon === "book" && <Book class="w-28 h-28 fill-black self-end" />}
+        {icon === "chats" && <Chats class="w-28 h-28 fill-black self-end" />}
+        {icon === "stats" && <Stats class="w-28 h-28 fill-black self-end" />}
     </div>
 </article>

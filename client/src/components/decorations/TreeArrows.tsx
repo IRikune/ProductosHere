@@ -1,6 +1,6 @@
-export const TreeArrows = ({ className }: { className?: string }) => (
+export const TreeArrows = ({ class: className }: { class?: string }) => (
     <svg
-        className={`w-5 h-5 fill-black ${className}`}
+        class={`w-5 h-5 fill-black ${className}`}
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 229 228"

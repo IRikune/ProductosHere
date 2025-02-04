@@ -12,7 +12,8 @@ export default defineConfig({
   integrations: [react({
     include: "./src/components/react/**/*.tsx"
   }), preact({
-    include: "./src/components/preact/**/*.tsx"
+    include: "./src/components/**/*.tsx",
+    exclude: "./src/components/react/**/*.tsx"
   })],
   vite: {
     plugins: [
