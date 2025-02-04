@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button } from './Button';
+import { Button } from './preact/Button';
 import '../assets/animations.css'
 export function BurgerButton() {
     const [isOpen, setIsOpen] = useState(false);

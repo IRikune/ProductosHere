@@ -1,9 +1,9 @@
-import type { ReactNode } from "react";
+import type { ComponentChildren } from "preact"
 
 interface Props {
     type?: "underline" | "filled" | "outlined";
     to?: string;
-    children?: ReactNode;
+    children?: ComponentChildren;
     className?: string;
 }
 
