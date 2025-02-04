@@ -1,4 +1,4 @@
-
+import { LovingDoodle } from "../doodles/LovingDoodle"
 export function AuthPresentation() {
     return (
         <section className="font-drawed text-center presentation">

@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import CardInfo from "../components/CardInfo.astro";
 import { Decoration } from "../components/Decoration";
 import { Button } from "../components/preact/Button";
+import { Underline } from "../components/decorations/Underline";
 ---
 
 <Layout>
@@ -12,11 +13,7 @@ import { Button } from "../components/preact/Button";
 				<span class="block">Los productos</span>
 				<span>para tu emprendimiento</span>
 				<div class="ml-28">
-					<Decoration
-						className="w-64"
-						type="underlined"
-						variation={1}
-					/>
+					<Underline class="w-32 lg:w-64" />
 				</div>
 			</h2>
 			<p class="text-balance mt-2 text-lg">

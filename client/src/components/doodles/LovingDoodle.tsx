@@ -1,5 +1,5 @@
-export const LovingDoodle = ({ className }: { className?: string }) => (
-    <svg className={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
+export const LovingDoodle = ({ class: className }: { class?: string }) => (
+    <svg class={className} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 768">
         <g
             id="react-group-21"
             fill="#FFFFFF00"
