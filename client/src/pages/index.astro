@@ -4,6 +4,7 @@ import CardInfo from "../components/CardInfo.astro";
 import { Decoration } from "../components/Decoration";
 import { Button } from "../components/preact/Button";
 import { Underline } from "../components/decorations/Underline";
+import { Doodle } from "../components/decorations/Doodle";
 ---
 
 <Layout>
@@ -33,11 +34,7 @@ import { Underline } from "../components/decorations/Underline";
 			<img src="../../public/cat.png" alt="cat" />
 		</aside>
 		<div class="absolute bottom-0 mb-10">
-			<Decoration
-				type="underlined"
-				variation={2}
-				className="fill-black w-96"
-			/>
+			<Doodle class="fill-black w-96" />
 		</div>
 	</header>
 	<div class="w-dvw h-32 mt-32"></div>
