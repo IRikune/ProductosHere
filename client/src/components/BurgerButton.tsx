@@ -3,19 +3,27 @@ import { Button } from './Button';
 import '../assets/animations.css'
 export function BurgerButton() {
     const [isOpen, setIsOpen] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        setIsLoading(false)
+    }, [])
+
     return (
         <div
             className=''
         >
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className='w-10 h-10 right-14 top-8 absolute rounded flex justify-center items-center active:bg-neutral-800 z-50 overflow-hidden'>
+                className='w-10 h-10 right-14 top-8 absolute rounded flex justify-center items-center transition duration-300 active:bg-neutral-200 z-20 overflow-hidden starting:opacity-0'>
                 <div className={`rounded w-[80%] p-px bg-black self-start absolute mt-2 ${isOpen ? 'animation-top-bar-open' : 'animation-top-bar-close'}`}></div>
                 <div className={`rounded w-[80%] p-px bg-black absolute ${isOpen ? 'animation-middle-bar-open' : 'animation-middle-bar-close'}`}></div>
                 <div className={`rounded w-[80%] p-px bg-black self-end absolute mb-2 ${isOpen ? 'animation-bottom-bar-open' : 'animation-bottom-bar-close'}`}>
                 </div>
             </button>
-            <Menu isOpen={isOpen} />
+            <div
+                className="-z-50">
+                <Menu isOpen={isOpen} />
+            </div>
         </div>
     );
 }
