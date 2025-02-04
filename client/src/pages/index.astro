@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import CardInfo from "../components/CardInfo.astro";
-import { Decoration } from "../components/Decoration";
 import { Button } from "../components/preact/Button";
 import { Underline } from "../components/decorations/Underline";
 import { Doodle } from "../components/decorations/Doodle";
+import { Highlight } from "../components/decorations/Highlight";
 ---
 
 <Layout>
@@ -28,7 +28,7 @@ import { Doodle } from "../components/decorations/Doodle";
 		</section>
 		<aside class="w-96 relative">
 			<div class="-mt-10 ml-10 absolute">
-				<Decoration className="w-20" type="highlighted" variation={1} />
+				<Highlight class="w-20" />
 			</div>
 
 			<img src="../../public/cat.png" alt="cat" />
@@ -43,7 +43,7 @@ import { Doodle } from "../components/decorations/Doodle";
 			class="flex justify-center items-center flex-col sticky top-3 left-0 z-10 -mt-10"
 		>
 			<h1 class="mb-2 font-drawed text-5xl">¿Cómo trabajamos?</h1>
-			<Decoration className="w-80 fill-black" variation={2} />
+			<Doodle class="w-80 fill-black" />
 		</div>
 		<main class="flex justify-around">
 			<aside class="-mt-12">
