@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import { Button } from './preact/Button';
-import '../assets/animations.css'
+import { useState, useEffect } from 'preact/hooks';
+import { Button } from './Button';
+import '../../assets/animations.css'
 export function BurgerButton() {
     const [isOpen, setIsOpen] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
