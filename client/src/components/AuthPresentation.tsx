@@ -2,7 +2,9 @@
 export function AuthPresentation() {
     return (
         <section className="font-drawed text-center presentation">
-            <h1 className="font-drawed text-6xl" />
+            <h1 className="font-drawed text-6xl">
+                ProductosHere
+            </h1>
             <img
                 src="../../public/ducks.png"
                 alt="ducks"
