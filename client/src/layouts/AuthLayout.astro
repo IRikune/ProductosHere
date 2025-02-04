@@ -1,12 +1,10 @@
 ---
 import "@fontsource/amatic-sc";
 import "../assets/global.css";
-import Logo from "../components/Logo.astro";
-import { LovingDoodle } from "../components/doodles/LovingDoodle";
-import { HiDoodle } from "../components/doodles/HiDoodle";
 import { Sparkles } from "../components/decorations/Sparkles";
 import { Loop } from "../components/decorations/Loop";
 import { TreeArrows } from "../components/decorations/TreeArrows";
+import { AuthPresentation } from "../components/AuthPresentation";
 ---
 
 <!doctype html>
@@ -35,17 +33,7 @@ import { TreeArrows } from "../components/decorations/TreeArrows";
             <TreeArrows
                 className="w-48 h-48 absolute bottom-10 left-10 fill-neutral-400"
             />
-
-            <section class="font-drawed text-center presentation">
-                <Logo class="text-6xl" />
-                <img
-                    src="../../public/ducks.png"
-                    alt="ducks"
-                    class="w-96 -my-15 animate-pulse-2"
-                />
-                <h2 class="text-4xl">¿Te quieres unir a nosotros?</h2>
-                <h3 class="text-5xl">¡Bienvenido!</h3>
-            </section>
+            <AuthPresentation />
             <slot />
         </main>
     </body>
