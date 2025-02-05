@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import "@fontsource/amatic-sc";
 import "../assets/global.css";
 import { Sparkles } from "../components/decorations/Sparkles";
@@ -14,6 +15,7 @@ import { TreeArrows } from "../components/decorations/TreeArrows";
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
         <title>Astro Basics</title>
+        <ClientRouter />
     </head>
     <body>
         <main

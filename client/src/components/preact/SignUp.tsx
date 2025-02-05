@@ -7,9 +7,11 @@ export function SignUp() {
         <>
             <div class="">
             </div>
-            <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating && "-mt-12 mb-2"}`}>
-                ProductosHere
-            </h1>
+            <a class="z-10" href="/">
+                <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating && "-mt-12 mb-2"}`}>
+                    ProductosHere
+                </h1>
+            </a>
             <section>
                 <AuthPresentation
                     isAnimating={isAnimating}
