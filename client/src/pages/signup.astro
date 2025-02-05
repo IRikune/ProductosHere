@@ -1,11 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import AuthLayout from "../layouts/AuthLayout.astro";
+import { SignUp } from "../components/preact/SignUp";
 ---
 
-<Layout title="Sign Up">
-    <!-- step 1 Animation -->
-     <div>
-        <h1>Quieres ser parte de la nosotros?</h1>
-        <h2>Increíble</h2>
-     </div>
-</Layout>
+<AuthLayout title="Sign Up">
+   <SignUp client:load />
+</AuthLayout>

@@ -1,10 +1,13 @@
 import { useState, useEffect } from "preact/hooks";
 import { useWait } from "../../hooks/mod";
-
-
-export function AuthPresentation({ class: className }: { class?: string }) {
+import type { Dispatch, StateUpdater } from "preact/hooks";
+interface Props {
+    class?: string
+    isAnimating: boolean,
+    setIsAnimating: Dispatch<StateUpdater<boolean>>
+}
+export function AuthPresentation({ isAnimating, setIsAnimating, class: className }: Props) {
     const [isLoading, setIsLoading] = useState(true);
-    const [isAnimating, setIsAnimating] = useState(true);
 
     useEffect(() => {
         useWait(3000)
@@ -15,11 +18,8 @@ export function AuthPresentation({ class: className }: { class?: string }) {
 
     return (
         <section
-            class={`font-drawed text-center presentation transition-all duration-1000 transition-discrete starting:opacity-0
+            class={`font- font-drawed text-center presentation transition-all duration-1000 transition-discrete starting:opacity-0
             ${isLoading ? "animate-fade-in" : "animate-fade-out"} ${!isAnimating && "hidden"} ${className}`}>
-            <h1 class="font-drawed text-6xl">
-                ProductosHere
-            </h1>
             <img
                 src="../../public/ducks.png"
                 alt="ducks"

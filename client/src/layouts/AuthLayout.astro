@@ -4,7 +4,6 @@ import "../assets/global.css";
 import { Sparkles } from "../components/decorations/Sparkles";
 import { Loop } from "../components/decorations/Loop";
 import { TreeArrows } from "../components/decorations/TreeArrows";
-import { AuthPresentation } from "../components/preact/AuthPresentation";
 ---
 
 <!doctype html>
@@ -31,7 +30,6 @@ import { AuthPresentation } from "../components/preact/AuthPresentation";
             <TreeArrows
                 class="w-48 h-48 absolute bottom-10 left-10 fill-neutral-400"
             />
-            <AuthPresentation client:idle />
             <slot />
         </main>
     </body>
