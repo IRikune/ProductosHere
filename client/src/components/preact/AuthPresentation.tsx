@@ -1,25 +1,25 @@
-import { useState, useEffect } from "preact/hooks";
+import { useSignalEffect, useSignal, type Signal } from "@preact/signals";
 import { useWait } from "../../hooks/mod";
-import type { Dispatch, StateUpdater } from "preact/hooks";
+
 interface Props {
-    class?: string
-    isAnimating: boolean,
-    setIsAnimating: Dispatch<StateUpdater<boolean>>
+    class?: string;
+    isAnimating: Signal<boolean>;
 }
-export function AuthPresentation({ isAnimating, setIsAnimating, class: className }: Props) {
-    const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
+export function AuthPresentation({ isAnimating, class: className }: Props) {
+    const isLoading = useSignal(true);
+    useSignalEffect(() => {
         useWait(3000)
-            .then(() => setIsLoading(false))
-        useWait(4000)
-            .then(() => setIsAnimating(false))
-    }, [])
+            .then(() => { isLoading.value = false })
 
+        useWait(4000)
+            .then(() => { isAnimating.value = false })
+    })
     return (
         <section
-            class={`font- font-drawed text-center presentation transition-all duration-1000 transition-discrete starting:opacity-0
-            ${isLoading ? "animate-fade-in" : "animate-fade-out"} ${!isAnimating && "hidden"} ${className}`}>
+            class={`font-drawed text-center presentation transition-all duration-1000 transition-discrete starting:opacity-0
+            ${isLoading.value ? "animate-fade-in" : "animate-fade-out"} 
+            ${!isAnimating.value && "hidden"} ${className}`}
+        >
             <img
                 src="../../public/ducks.png"
                 alt="ducks"
@@ -28,5 +28,5 @@ export function AuthPresentation({ isAnimating, setIsAnimating, class: className
             <h2 class="text-4xl">¿Te quieres unir a nosotros?</h2>
             <h3 class="text-5xl">¡Bienvenido!</h3>
         </section>
-    )
+    );
 }
