@@ -1,4 +1,4 @@
-import { useSignal, signal, computed, batch } from "@preact/signals";
+import { useSignal, signal, batch } from "@preact/signals";
 import { AuthPresentation } from "./AuthPresentation";
 import type { TargetedEvent } from "preact/compat";
 
@@ -32,6 +32,18 @@ export function SignUp() {
     );
 }
 export function SignUpForm() {
+    const step = useSignal("name");
+    return (
+        <form onSubmit={e => e.preventDefault()}>
+            <div class="relative">
+                {step.value === "name" && <NameStep />}
+                {step.value === "email" && <EmailStep />}
+                {step.value === "password" && <PasswordStep />}
+            </div>
+        </form>
+    );
+}
+function NameStep() {
     const handleNameInput = (e: TargetedEvent<HTMLInputElement>) => {
         console.log(e.currentTarget?.value)
         const value = e.currentTarget?.value;
@@ -41,17 +53,36 @@ export function SignUpForm() {
         })
     }
     return (
-        <form onSubmit={e => e.preventDefault()}>
-            <div class="relative">
-                <input
-                    onInput={handleNameInput}
-                    value={formName}
-                    class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
-                    placeholder="¿Cómo te llamas?"
-                    id="name"
-                    type="text"
-                />
-            </div>
-        </form>
-    );
+        <input
+            onInput={handleNameInput}
+            value={formName}
+            class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+            placeholder="¿Cómo te llamas?"
+            id="name"
+            type="text"
+        />
+    )
+}
+function EmailStep() {
+    return (
+        <input
+            value={formEmail}
+            class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+            placeholder="Escribe tu correo..."
+            id="name"
+            type="text"
+        />
+    )
+}
+
+function PasswordStep() {
+    return (
+        <input
+            value={formPassword}
+            class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+            placeholder="Escribe tu contraseña..."
+            id="name"
+            type="password"
+        />
+    )
 }
