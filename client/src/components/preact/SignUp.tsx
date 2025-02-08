@@ -28,8 +28,10 @@ export function SignUp() {
 function SignUpForm() {
     return (
         <form action="">
-            <input class="w-full bg-neutral-200 rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-black o"
-                placeholder="Como te llamas?" id="name" type="text" />
+            <div class="relative">
+                <input class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+                    placeholder="Como te llamas?" id="name" type="text" />
+            </div>
         </form>
     )
 }
