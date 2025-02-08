@@ -23,7 +23,7 @@ export function AuthPresentation({ isAnimating, class: className }: Props) {
             <img
                 src="../../public/ducks.png"
                 alt="ducks"
-                class="w-96 -my-15 animate-pulse-2 aspect-square"
+                class="w-96 -mt-40 -mb-20 animate-pulse-2 aspect-square"
             />
             <h2 class="text-4xl">¿Te quieres unir a nosotros?</h2>
             <h3 class="text-5xl">¡Bienvenido!</h3>

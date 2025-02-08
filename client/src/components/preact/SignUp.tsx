@@ -1,5 +1,6 @@
 import { useSignal, signal, batch } from "@preact/signals";
 import { AuthPresentation } from "./AuthPresentation";
+import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
 
 const signUpData = signal({
@@ -10,26 +11,31 @@ const signUpData = signal({
 const formName = signal("");
 const formEmail = signal("");
 const formPassword = signal("");
-
+export const step = signal(0);
 export function SignUp() {
 
     const isAnimating = useSignal(true);
 
     return (
         <>
-            <a class="z-10" href="/">
-                <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating.value && "-mt-12 mb-2"}`}>
-                    ProductosHere
-                </h1>
-            </a>
-            <section>
-                <AuthPresentation isAnimating={isAnimating} />
+            <section class="h-32 mt-30">
+                <a class="z-10" href="/">
+                    <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating.value && "-translate-y-4"}`}>
+                        ProductosHere
+                    </h1>
+                </a>
             </section>
-            {!isAnimating.value && <SignUpForm />}
+            <section class="h-56">
+                <AuthPresentation isAnimating={isAnimating} />
+                {!isAnimating.value && <SignUpForm />}
+            </section>
+            <section>
+            </section>
             <h1>Data</h1>
             <h2>Name: {formName}</h2>
             <h2>Email: {formEmail}</h2>
             <h2>Password: {formPassword}</h2>
+            <SignUpSteps />
         </>
     );
 }
@@ -41,7 +47,6 @@ enum Step {
     Profile = 3,
 }
 export function SignUpForm() {
-    const step = useSignal(0);
     const handleStep = (e: TargetedEvent<HTMLButtonElement>) => {
         if (step.value !== 3) step.value = step.value + 1;
     }
