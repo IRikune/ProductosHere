@@ -7,12 +7,14 @@ const signUpData = signal({
     email: "",
     password: "",
 })
-
 const formName = signal("");
 const formEmail = signal("");
 const formPassword = signal("");
+
 export function SignUp() {
+
     const isAnimating = useSignal(true);
+
     return (
         <>
             <a class="z-10" href="/">
@@ -41,7 +43,7 @@ enum Step {
 export function SignUpForm() {
     const step = useSignal(0);
     const handleStep = (e: TargetedEvent<HTMLButtonElement>) => {
-        step.value = step.value + 1;
+        if (step.value !== 3) step.value = step.value + 1;
     }
     return (
         <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
@@ -51,18 +53,20 @@ export function SignUpForm() {
                 {step.value === Step.Password && <PasswordStep />}
                 {step.value === Step.Profile && <ProfileStep />}
             </div>
-            <button
-                onClick={handleStep}
-                type="button"
-                class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2">
-                👉
-            </button>
+            {
+                step.value !== 3
+                && <button
+                    onClick={handleStep}
+                    type="button"
+                    class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2">
+                    👉
+                </button>
+            }
         </form>
     );
 }
 function NameStep() {
     const handleNameInput = (e: TargetedEvent<HTMLInputElement>) => {
-        console.log(e.currentTarget?.value)
         const value = e.currentTarget?.value;
         batch(() => {
             formName.value = value;
@@ -81,20 +85,36 @@ function NameStep() {
     )
 }
 function EmailStep() {
+    const handleEmailInput = (e: TargetedEvent<HTMLInputElement>) => {
+        const value = e.currentTarget?.value;
+        batch(() => {
+            formEmail.value = value;
+            signUpData.value.email = value;
+        })
+    }
     return (
         <input
+            onInput={handleEmailInput}
             value={formEmail}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
             placeholder="Escribe tu correo..."
-            id="name"
+            id="email"
             type="text"
         />
     )
 }
 
 function PasswordStep() {
+    const handlePasswordInput = (e: TargetedEvent<HTMLInputElement>) => {
+        const value = e.currentTarget?.value;
+        batch(() => {
+            formPassword.value = value;
+            signUpData.value.password = value;
+        })
+    }
     return (
         <input
+            onInput={handlePasswordInput}
             value={formPassword}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
             placeholder="Escribe tu contraseña..."
@@ -105,8 +125,16 @@ function PasswordStep() {
 }
 
 function ProfileStep() {
+    const handleProfileInput = (e: TargetedEvent<HTMLInputElement>) => {
+        const value = e.currentTarget?.value;
+        batch(() => {
+            formPassword.value = value;
+            signUpData.value.password = value;
+        })
+    }
     return (
         <input
+            onInput={handleProfileInput}
             value={formPassword}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
             placeholder="Escribe tu perfil..."
