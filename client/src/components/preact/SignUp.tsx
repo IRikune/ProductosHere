@@ -31,15 +31,32 @@ export function SignUp() {
         </>
     );
 }
+
+enum Step {
+    Name = 0,
+    Email = 1,
+    Password = 2,
+    Profile = 3,
+}
 export function SignUpForm() {
-    const step = useSignal("name");
+    const step = useSignal(0);
+    const handleStep = (e: TargetedEvent<HTMLButtonElement>) => {
+        step.value = step.value + 1;
+    }
     return (
-        <form onSubmit={e => e.preventDefault()}>
+        <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
             <div class="relative">
-                {step.value === "name" && <NameStep />}
-                {step.value === "email" && <EmailStep />}
-                {step.value === "password" && <PasswordStep />}
+                {step.value === Step.Name && <NameStep />}
+                {step.value === Step.Email && <EmailStep />}
+                {step.value === Step.Password && <PasswordStep />}
+                {step.value === Step.Profile && <ProfileStep />}
             </div>
+            <button
+                onClick={handleStep}
+                type="button"
+                class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2">
+                👉
+            </button>
         </form>
     );
 }
@@ -83,6 +100,18 @@ function PasswordStep() {
             placeholder="Escribe tu contraseña..."
             id="name"
             type="password"
+        />
+    )
+}
+
+function ProfileStep() {
+    return (
+        <input
+            value={formPassword}
+            class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+            placeholder="Escribe tu perfil..."
+            id="name"
+            type="text"
         />
     )
 }
