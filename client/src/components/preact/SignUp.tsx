@@ -17,16 +17,10 @@ export function SignUp() {
     const isAnimating = useSignal(true);
     return (
         <>
-            <section class="h-16 flex flex-col justify-center items-center">
-                <a class="z-10" href="/">
-                    <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating.value && "-translate-y-4"}`}>
-                        ProductosHere
-                    </h1>
-                </a>
-                <DinamicDialog step={step} isAnimating={isAnimating} />
-            </section>
             <section class="h-40 mt-10">
                 <AuthPresentation isAnimating={isAnimating} />
+                <DinamicDialog step={step} isAnimating={isAnimating} />
+
                 {!isAnimating.value && <SignUpForm />}
             </section>
             <section

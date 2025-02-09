@@ -9,12 +9,8 @@ import preact from '@astrojs/preact';
 
 // https://astro.build/config
 export default defineConfig({
-  integrations: [react({
-    include: "./src/components/react/**/*.tsx"
-  }), preact({
-    include: "./src/components/**/*.tsx",
-    exclude: "./src/components/react/**/*.tsx"
-  })],
+  integrations: [
+    preact()],
   vite: {
     plugins: [
       tailwindcss()

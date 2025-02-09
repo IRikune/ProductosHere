@@ -26,24 +26,12 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.0.3
         version: 4.0.3(vite@6.0.3(jiti@2.4.2)(lightningcss@1.29.1)(yaml@2.6.1))
-      '@types/react':
-        specifier: ^18.3.14
-        version: 18.3.14
-      '@types/react-dom':
-        specifier: ^18.3.2
-        version: 18.3.2
       astro:
         specifier: ^5.0.3
         version: 5.0.3(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.28.1)(typescript@5.7.2)(yaml@2.6.1)
       preact:
         specifier: ^10.25.4
         version: 10.25.4
-      react:
-        specifier: ^19.0.0
-        version: 19.0.0
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
       tailwindcss:
         specifier: ^4.0.3
         version: 4.0.3

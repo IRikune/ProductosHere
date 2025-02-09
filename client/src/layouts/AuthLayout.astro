@@ -7,6 +7,7 @@ import { Loop } from "../components/decorations/Loop";
 import { ThreeArrows } from "../components/decorations/ThreeArrows";
 import { Arrow } from "../components/decorations/Arrow";
 import { BurgerButton } from "../components/preact/BurgerButton";
+import Logo from "../components/Logo.astro";
 ---
 
 <!doctype html>
@@ -31,6 +32,11 @@ import { BurgerButton } from "../components/preact/BurgerButton";
                 <Arrow class="w-7 h-7 rotate-180" />
                 <span class="font-drawed text-3xl ml-2">Volver</span>
             </a>
+            <section class="h-16 flex flex-col justify-center items-center">
+                <a class="z-10" href="/">
+                    <Logo />
+                </a>
+            </section>
             <BurgerButton client:load class="" />
             <Sparkles
                 class="w-64 h-64 absolute top-40 left-10 fill-neutral-400"
