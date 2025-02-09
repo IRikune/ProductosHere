@@ -135,7 +135,7 @@ function ProfileStep() {
     }
     return (
         <Button
-            class="m-auto"
+            class="m-auto cursor-pointer"
             type="filled"
         >
             Crear perfil
