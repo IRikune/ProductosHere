@@ -112,23 +112,23 @@
 }
 
 .animation-middle-bar-open {
-    animation: middeBarOpen .5s forwards ease-out;
+    animation: middeBarOpen .3s forwards ease-out;
 }
 
 .animation-top-bar-open {
-    animation: topBarOpen .5s forwards ease-out;
-    animation-delay: .5s;
+    animation: topBarOpen .3s forwards ease-out;
+    animation-delay: .3s;
 }
 
 .animation-bottom-bar-open {
-    animation: bottomBarOpen .5s forwards ease-out;
-    animation-delay: .5s;
+    animation: bottomBarOpen .3s forwards ease-out;
+    animation-delay: .3s;
 }
 
 .animation-top-bar-close {
-    animation: topBarClose .5s forwards ease-out;
+    animation: topBarClose .3s forwards ease-out;
 }
 
 .animation-bottom-bar-close {
-    animation: bottomBarClose .5s forwards ease-out;
+    animation: bottomBarClose .3s forwards ease-out;
 }

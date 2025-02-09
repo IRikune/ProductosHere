@@ -1,10 +1,9 @@
-import { type Signal, useSignal, useSignalEffect } from '@preact/signals';
+import { type Signal, useSignal } from '@preact/signals';
 import { Button } from './Button';
 import '../../assets/animations.css'
 
 export function BurgerButton({ class: className }: { class?: string }) {
     const isOpen = useSignal(false);
-    const isAnimating = useSignal(true);
     return (
         <div>
             <button
