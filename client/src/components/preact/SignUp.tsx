@@ -1,4 +1,4 @@
-import { useSignal, signal, batch, type Signal } from "@preact/signals";
+import { useSignal, signal, batch, computed, type Signal } from "@preact/signals";
 import { AuthPresentation } from "./AuthPresentation";
 import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
@@ -49,11 +49,11 @@ export function SignUpForm() {
     }
     return (
         <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
-            <div class="relative flex justify-center items-center">
+            <div class="relative flex justify-center items-center flex-col">
                 {step.value === Step.Name && <NameStep />}
                 {step.value === Step.Email && <EmailStep />}
                 {step.value === Step.Password && <PasswordStep />}
-                {step.value === Step.Profile && <ProfileStep />}
+                {step.value === Step.Profile && <ConfirmStep />}
             </div>
             {
                 step.value !== Step.Profile
@@ -120,28 +120,38 @@ function PasswordStep() {
             value={formPassword}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
             placeholder="Shhhhh..."
-            id="name"
+            id="password"
             type="password"
         />
     )
 }
 
-function ProfileStep() {
-    const handleProfileInput = (e: TargetedEvent<HTMLInputElement>) => {
+function ConfirmStep() {
+    const formConfirm = useSignal("");
+    const isConfirmedPassword = computed(() => formPassword.value === formConfirm.value);
+    const handleConfirmInput = (e: TargetedEvent<HTMLInputElement>) => {
         const value = e.currentTarget?.value;
-        batch(() => {
-            formPassword.value = value;
-            signUpData.value.password = value;
-        })
+        formConfirm.value = value;
     }
     return (
-        <Button
-            class="m-auto hover:*:fill-black flex cursor-pointer items-center"
-            type="filled"
-        >
-            Crear perfil
-            <Check class="fill-white transition duration-300 ml-1" />
-        </Button>
+        <>
+            <input
+                onInput={handleConfirmInput}
+                value={formConfirm.value}
+                class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
+                placeholder="Confirma tu contraseña..."
+                id="confirm"
+                type="password"
+            />
+            <Button
+                disabled={!isConfirmedPassword.value}
+                class="m-auto mt-4 hover:*:fill-black flex cursor-pointer items-center disabled:cursor-not-allowed disabled:opacity-50"
+                type="filled"
+            >
+                Crear perfil
+                <Check class="fill-white transition duration-300 ml-1" />
+            </Button>
+        </>
     )
 }
 
