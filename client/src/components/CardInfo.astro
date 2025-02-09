@@ -1,15 +1,13 @@
 ---
-import { Star, Book, Chats, Stats } from "./Icons";
 import CardBackground from "./CardBackground.astro";
 interface Props {
     class: string;
-    icon?: "star" | "book" | "chats" | "stats";
 }
 
-const { class: className, icon } = Astro.props;
+const { class: className } = Astro.props;
 ---
 
-<article class=`rounded-xl flex relative ${className}`>
+<article class={`rounded-xl flex relative ${className}`}>
     <div class="absolute -z-10">
         <CardBackground class="w-[29rem]" />
     </div>
@@ -20,9 +18,5 @@ const { class: className, icon } = Astro.props;
         <p class="w-[35ch] ml-10 mt-5 text-balance text-lg">
             <slot name="description" />
         </p>
-        {icon === "star" && <Star class="w-28 h-28 fill-black self-end" />}
-        {icon === "book" && <Book class="w-28 h-28 fill-black self-end" />}
-        {icon === "chats" && <Chats class="w-28 h-28 fill-black self-end" />}
-        {icon === "stats" && <Stats class="w-28 h-28 fill-black self-end" />}
     </div>
 </article>
