@@ -21,7 +21,7 @@ export function AuthPresentation({ isAnimating, class: className }: Props) {
             ${!isAnimating.value && "hidden"} ${className}`}
         >
             <img
-                src="../../public/ducks.png"
+                src="../../public/ducks.avif"
                 alt="ducks"
                 class="w-96 -mt-40 -mb-20 animate-pulse-2 aspect-square"
             />

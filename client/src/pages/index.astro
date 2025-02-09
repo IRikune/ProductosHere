@@ -1,10 +1,12 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
-import CardInfo from "../components/CardInfo.astro";
 import { Button } from "../components/preact/Button";
 import { Underline } from "../components/decorations/Underline";
 import { Doodle } from "../components/decorations/Doodle";
 import { Highlight } from "../components/decorations/Highlight";
+import CatImage from "../assets/cat.avif";
+import FrogImage from "../assets/frog.avif";
 ---
 
 <Layout>
@@ -30,11 +32,7 @@ import { Highlight } from "../components/decorations/Highlight";
 			<div class="-mt-10 ml-10 absolute">
 				<Highlight class="w-20" />
 			</div>
-			<img
-				class="aspect-square w-full"
-				src="../../public/cat.png"
-				alt="cat"
-			/>
+			<Image class="aspect-square w-full" src={CatImage} alt="cat" />
 		</aside>
 
 		<div class="absolute bottom-0 mb-10">
@@ -51,9 +49,9 @@ import { Highlight } from "../components/decorations/Highlight";
 		</div>
 		<main class="flex justify-around">
 			<div>
-				<img
+				<Image
 					class="max-w-md sticky top-28 left-0"
-					src="../../public/frog.png"
+					src={FrogImage}
 					alt="frog"
 				/>
 			</div>
