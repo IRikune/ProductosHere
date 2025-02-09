@@ -104,11 +104,11 @@
 
 .animation-slide {
     transition: none;
-    animation: slide 0.5s forwards cubic-bezier(.3, 0.03, 0.515, 0.955);
+    animation: slide 0.5s forwards ease-in-out;
 }
 
 .animation-slide-out {
-    animation: slideOut 0.5s forwards cubic-bezier(1, 0.03, 0.515, 0.955);
+    animation: slideOut 0.5s forwards ease-in-out;
 }
 
 .animation-middle-bar-open {

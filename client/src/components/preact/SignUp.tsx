@@ -2,6 +2,7 @@ import { useSignal, signal, batch, type Signal } from "@preact/signals";
 import { AuthPresentation } from "./AuthPresentation";
 import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
+import { Arrow } from "../decorations/Arrow";
 
 const signUpData = signal({
     name: "",
@@ -13,9 +14,7 @@ const formEmail = signal("");
 const formPassword = signal("");
 const step = signal(0);
 export function SignUp() {
-
     const isAnimating = useSignal(true);
-
     return (
         <>
             <section class="h-16 flex flex-col justify-center items-center">
@@ -50,7 +49,7 @@ enum Step {
 }
 export function SignUpForm() {
     const handleStep = (e: TargetedEvent<HTMLButtonElement>) => {
-        if (step.value < Step.Profile) step.value = step.value + 1;
+        if (step.value < Step.Profile) step.value++
     }
     return (
         <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
@@ -65,8 +64,8 @@ export function SignUpForm() {
                 && <button
                     onClick={handleStep}
                     type="button"
-                    class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2">
-                    👉
+                    class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2 hover:*:translate-x-0.5">
+                    <Arrow class="fill-white w-full transition duration-300 ease-in-out" />
                 </button>
             }
         </form>

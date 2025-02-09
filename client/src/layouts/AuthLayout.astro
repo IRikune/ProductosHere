@@ -5,6 +5,8 @@ import "../assets/global.css";
 import { Sparkles } from "../components/decorations/Sparkles";
 import { Loop } from "../components/decorations/Loop";
 import { ThreeArrows } from "../components/decorations/ThreeArrows";
+import { Arrow } from "../components/decorations/Arrow";
+import { BurgerButton } from "../components/preact/BurgerButton";
 ---
 
 <!doctype html>
@@ -21,8 +23,17 @@ import { ThreeArrows } from "../components/decorations/ThreeArrows";
         <main
             class="w-dvw h-dvh flex justify-center items-center flex-col relative"
         >
+            <a
+                href="/"
+                type="button"
+                class="absolute z-10 flex justify-center items-center top-10 left-25 cursor-pointer m-auto mt-2 *:transition *:duration-300 *:ease-in-out hover:*:-translate-x-1"
+            >
+                <Arrow class="w-7 h-7 rotate-180" />
+                <span class="font-drawed text-3xl ml-2">Volver</span>
+            </a>
+            <BurgerButton client:load class="" />
             <Sparkles
-                class="w-64 h-64 absolute top-10 left-10 fill-neutral-400"
+                class="w-64 h-64 absolute top-40 left-10 fill-neutral-400"
             />
             <Sparkles
                 class="w-64 h-64 absolute bottom-10 right-10 fill-neutral-400"
