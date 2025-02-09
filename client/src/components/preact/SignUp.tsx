@@ -64,7 +64,7 @@ export function SignUpForm() {
                 && <button
                     onClick={handleStep}
                     type="button"
-                    class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-2 hover:*:translate-x-0.5">
+                    class="w-10 h-10 cursor-pointer bg-black rounded-full m-auto mt-8 hover:*:translate-x-0.5 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:*:translate-x-0">
                     <Arrow class="fill-white w-full transition duration-300 ease-in-out" />
                 </button>
             }
