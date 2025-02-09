@@ -19,7 +19,7 @@ export function SignUp() {
     const isAnimating = useSignal(true);
     return (
         <>
-            <section class="h-40 mt-10">
+            <section class="h-40 mt-10 flex flex-col">
                 <AuthPresentation isAnimating={isAnimating} />
                 <DinamicDialog step={step} isAnimating={isAnimating} />
 
