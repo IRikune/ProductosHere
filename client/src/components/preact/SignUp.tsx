@@ -1,4 +1,4 @@
-import { useSignal, signal, batch } from "@preact/signals";
+import { useSignal, signal, batch, type Signal } from "@preact/signals";
 import { AuthPresentation } from "./AuthPresentation";
 import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
@@ -11,31 +11,32 @@ const signUpData = signal({
 const formName = signal("");
 const formEmail = signal("");
 const formPassword = signal("");
-export const step = signal(0);
+const step = signal(0);
 export function SignUp() {
 
     const isAnimating = useSignal(true);
 
     return (
         <>
-            <section class="h-32 mt-30">
+            <section class="h-24">
                 <a class="z-10" href="/">
                     <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating.value && "-translate-y-4"}`}>
                         ProductosHere
                     </h1>
                 </a>
             </section>
-            <section class="h-56">
+            <section class="h-40 mt-10">
                 <AuthPresentation isAnimating={isAnimating} />
                 {!isAnimating.value && <SignUpForm />}
             </section>
-            <section>
+            <section
+                class={`opacity-0 justify-self-end transition-all duration-1000 ${!isAnimating.value && "opacity-100"}`}>
+                <SignUpSteps step={step} />
             </section>
-            <h1>Data</h1>
+            {/* <h1>Data</h1>
             <h2>Name: {formName}</h2>
             <h2>Email: {formEmail}</h2>
-            <h2>Password: {formPassword}</h2>
-            <SignUpSteps />
+            <h2>Password: {formPassword}</h2> */}
         </>
     );
 }
@@ -148,3 +149,4 @@ function ProfileStep() {
         />
     )
 }
+
