@@ -3,6 +3,7 @@ import { AuthPresentation } from "./AuthPresentation";
 import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
 import { Arrow } from "../decorations/Arrow";
+import { Button } from "./Button";
 
 const signUpData = signal({
     name: "",
@@ -47,7 +48,7 @@ export function SignUpForm() {
     }
     return (
         <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
-            <div class="relative">
+            <div class="relative flex justify-center items-center">
                 {step.value === Step.Name && <NameStep />}
                 {step.value === Step.Email && <EmailStep />}
                 {step.value === Step.Password && <PasswordStep />}
@@ -133,14 +134,12 @@ function ProfileStep() {
         })
     }
     return (
-        <input
-            onInput={handleProfileInput}
-            value={formPassword}
-            class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
-            placeholder="Escribe tu perfil..."
-            id="name"
-            type="text"
-        />
+        <Button
+            class="m-auto"
+            type="filled"
+        >
+            Crear perfil
+        </Button>
     )
 }
 

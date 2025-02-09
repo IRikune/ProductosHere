@@ -26,6 +26,9 @@ importers:
       '@unpic/astro':
         specifier: ^1.0.0
         version: 1.0.0(astro@5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.6)(typescript@5.7.3)(yaml@2.7.0))
+      '@unpic/preact':
+        specifier: ^1.0.0
+        version: 1.0.0(preact@10.25.4)
       astro:
         specifier: ^5.2.5
         version: 5.2.5(@types/node@22.13.1)(jiti@2.4.2)(lightningcss@1.29.1)(rollup@4.34.6)(typescript@5.7.3)(yaml@2.7.0)
@@ -801,6 +804,11 @@ packages:
 
   '@unpic/placeholder@0.1.2':
     resolution: {integrity: sha512-O++tS97biojo5sqn5TeTt+jUjl5gWOdIQuOXe8YluTJWq4L0GM6VuTkaspNpsmxHfioJw/6YBirzOpG4t87l8Q==}
+
+  '@unpic/preact@1.0.0':
+    resolution: {integrity: sha512-Q94onwQO7BVHL0OE1OhKljORV7aqghjCBre7lMSba53I8ddgPmmXsfUPE2zWN2aWOkElBqRJ9I5ohewRN/Zc3g==}
+    peerDependencies:
+      preact: '*'
 
   acorn@8.14.0:
     resolution: {integrity: sha512-cl669nCJTZBsL97OF4kUQm5g5hC2uihk0NxY3WENAC0TYdILVkAyHymAntgxGkl7K+t0cXIrH5siy5S4XkFycA==}
@@ -2774,6 +2782,11 @@ snapshots:
   '@unpic/placeholder@0.1.2':
     dependencies:
       blurhash: 2.0.5
+
+  '@unpic/preact@1.0.0(preact@10.25.4)':
+    dependencies:
+      '@unpic/core': 1.0.1
+      preact: 10.25.4
 
   acorn@8.14.0: {}
 

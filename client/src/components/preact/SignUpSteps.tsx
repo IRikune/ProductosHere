@@ -1,9 +1,6 @@
 import type { Signal } from "@preact/signals";
 
 export function SignUpSteps({ step }: { step: Signal<number> }) {
-
-
-
     return (
         <div class="**:text-neutral-500 **:hover:text-black *:cursor-pointer **:transition-all **:duration-300 **:font-drawed **:text-4xl **:mt-2 **:mx-2">
             <button
