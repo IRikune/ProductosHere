@@ -128,7 +128,7 @@ function PasswordStep() {
 
 function ConfirmStep() {
     const formConfirm = useSignal("");
-    const isConfirmedPassword = computed(() => formPassword.value === formConfirm.value);
+    const isConfirmedPassword = computed(() => formPassword.value === formConfirm.value && formConfirm.value !== "");
     const handleConfirmInput = (e: TargetedEvent<HTMLInputElement>) => {
         const value = e.currentTarget?.value;
         formConfirm.value = value;
