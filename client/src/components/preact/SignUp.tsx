@@ -4,6 +4,7 @@ import { SignUpSteps } from "./SignUpSteps";
 import type { TargetedEvent } from "preact/compat";
 import { Arrow } from "../decorations/Arrow";
 import { Button } from "./Button";
+import { Check } from "../decorations/Check";
 
 const signUpData = signal({
     name: "",
@@ -135,10 +136,11 @@ function ProfileStep() {
     }
     return (
         <Button
-            class="m-auto cursor-pointer"
+            class="m-auto hover:*:fill-black flex cursor-pointer items-center"
             type="filled"
         >
             Crear perfil
+            <Check class="fill-white transition duration-300 ml-1" />
         </Button>
     )
 }
