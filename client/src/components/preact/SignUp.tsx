@@ -18,12 +18,13 @@ export function SignUp() {
 
     return (
         <>
-            <section class="h-24">
+            <section class="h-16 flex flex-col justify-center items-center">
                 <a class="z-10" href="/">
                     <h1 class={`font-drawed transition-all duration-1000 text-6xl ${!isAnimating.value && "-translate-y-4"}`}>
                         ProductosHere
                     </h1>
                 </a>
+                <DinamicDialog step={step} isAnimating={isAnimating} />
             </section>
             <section class="h-40 mt-10">
                 <AuthPresentation isAnimating={isAnimating} />
@@ -49,7 +50,7 @@ enum Step {
 }
 export function SignUpForm() {
     const handleStep = (e: TargetedEvent<HTMLButtonElement>) => {
-        if (step.value !== 3) step.value = step.value + 1;
+        if (step.value < Step.Profile) step.value = step.value + 1;
     }
     return (
         <form class="flex flex-col" onSubmit={e => e.preventDefault()}>
@@ -60,7 +61,7 @@ export function SignUpForm() {
                 {step.value === Step.Profile && <ProfileStep />}
             </div>
             {
-                step.value !== 3
+                step.value !== Step.Profile
                 && <button
                     onClick={handleStep}
                     type="button"
@@ -84,7 +85,7 @@ function NameStep() {
             onInput={handleNameInput}
             value={formName}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
-            placeholder="¿Cómo te llamas?"
+            placeholder="Ejemplo: María López"
             id="name"
             type="text"
         />
@@ -103,7 +104,7 @@ function EmailStep() {
             onInput={handleEmailInput}
             value={formEmail}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
-            placeholder="Escribe tu correo..."
+            placeholder="tucorreo@algo.com"
             id="email"
             type="text"
         />
@@ -123,7 +124,7 @@ function PasswordStep() {
             onInput={handlePasswordInput}
             value={formPassword}
             class="font-drawed w-full rounded focus:outline-offset-1 outline-neutral-500 p-2 focus:outline-none text-3xl tracking-tighter after:content-none bg-neutral-200"
-            placeholder="Escribe tu contraseña..."
+            placeholder="Shhhhh..."
             id="name"
             type="password"
         />
@@ -150,3 +151,14 @@ function ProfileStep() {
     )
 }
 
+function DinamicDialog({ step, isAnimating }: { step: Signal<number>, isAnimating: Signal<boolean> }) {
+
+    return (
+        <h2 class={`block h-10 font-drawed text-xl opacity-0 transition-all duration-1000 m-auto ${!isAnimating.value && "opacity-100"}`}>
+            {step.value === Step.Name && "¿Cómo te gustaría que te llamemos?"}
+            {step.value === Step.Email && "Tu correo electrónico (¡prometemos no compartirlo con nadie!)"}
+            {step.value === Step.Password && "Crea una contraseña tan fuerte como tu café matutino"}
+            {step.value === Step.Profile && "¿Una imagen que te represente? ¡Nos encantará conocer tu estilo!"}
+        </h2>
+    )
+}
