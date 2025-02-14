@@ -2,7 +2,7 @@ import { Hono } from "hono"
 import { validator } from "hono/validator"
 import { HTTPException } from "hono/http-exception"
 import { getManyUsers, getUser } from "../models/users.ts"
-import { idSchema } from "../schemas/users.ts"
+import { idSchema, userSchema } from "../schemas/users.ts"
 
 export const users = new Hono()
 
@@ -29,5 +29,19 @@ users.get(
     const { id } = c.req.valid("param")
     const user = await getUser(id)
     return c.json(user)
+  },
+)
+
+users.post(
+  "/",
+  validator("json", (value, _c) => {
+    const parsedBody = userSchema.safeParse(value)
+    if (!parsedBody.success) {
+      throw new HTTPException(400, { message: `${parsedBody.error}` })
+    }
+    const response = parsedBody.data
+  }),
+  (c) => {
+    return c.text("")
   },
 )
