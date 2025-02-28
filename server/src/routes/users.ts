@@ -2,7 +2,8 @@ import { Hono } from "hono"
 import { validator } from "hono/validator"
 import { HTTPException } from "hono/http-exception"
 import { getManyUsers, getUser } from "../models/users.ts"
-import { idSchema, userSchema } from "../schemas/users.ts"
+import { userSchema } from "../schemas/users.ts"
+import { idSchema } from "../schemas/common.ts"
 
 export const users = new Hono()
 
