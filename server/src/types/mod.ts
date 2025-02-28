@@ -1,39 +1,13 @@
-export interface User {
-  id: string
-  name: string
-  lastName: string
-  email: string
-  password: string
-  phone: string
-  directions: string[]
-  contracts: Contract[]
-  orders: Order[]
-}
+import type { z } from "zod"
+import type { productSchema } from "../schemas/products.ts"
+import type { userSchema } from "../schemas/users.ts"
+import type { contractSchema } from "../schemas/contracts.ts"
+import type { orderSchema } from "../schemas/orders.ts"
 
-export interface Contract {
-  id: string
-  details: string
-  amount: number
-  status: string
-}
+export type Product = z.infer<typeof productSchema>
 
-export interface Product {
-  id: string
-  producer: "AVON" | "ESIKA" | "LBEL"
-  name: string
-  category: string
-  aproxPrice: number
-}
+export type User = z.infer<typeof userSchema>
 
-export interface Order {
-  id: string
-  series: string
-  createdAt: number
-  expectedDate: number
-  expectedProducts: Product[]
-  expectedAmount: number
-  deliveredDate?: number
-  deliveredProducts?: Product[]
-  deliveredAmount?: number
-  status: "pending" | "delivered" | "cancelled"
-}
+export type Contract = z.infer<typeof contractSchema>
+
+export type Order = z.infer<typeof orderSchema>
