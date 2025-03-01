@@ -47,8 +47,9 @@ export async function createUser(user: User): KvUsersResultMaybe {
 
 export async function getUser(userID: User["id"]): KvUsersResultMaybe {
   const primaryKey = ["users", userID]
-  const user = await kv.get<User>(primaryKey)
-  const response: KvUsersResult = { ok: true, ...user }
+  const entry = await kv.get<User>(primaryKey)
+  const user = entry.value
+  const response: KvUsersResult = { ok: true, data: user || [] }
   return response
 }
 
