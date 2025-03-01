@@ -1,12 +1,12 @@
 import { z } from "zod"
 import { idSchema, productIDSchema } from "./common.ts"
 
-const discountSchema = z.object({
+export const discountSchema = z.object({
   forProducts: idSchema.array(),
   discount: z.number().positive(),
 })
 
-const serieSchema = z.object({
+export const serieSchema = z.object({
   id: idSchema,
   name: z.string(),
   products: productIDSchema.array(),
