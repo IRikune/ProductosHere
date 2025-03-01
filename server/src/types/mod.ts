@@ -7,6 +7,7 @@ import type {
   orderSchema,
   serieSchema,
 } from "../schemas/orders.ts"
+import type { postProductSchema } from "../schemas/products.ts"
 
 export type Product = z.infer<typeof productSchema>
 
@@ -19,3 +20,5 @@ export type Order = z.infer<typeof orderSchema>
 export type Serie = z.infer<typeof serieSchema>
 
 export type Discount = z.infer<typeof discountSchema>
+
+export type PostProductSchema = z.infer<typeof postProductSchema>
