@@ -9,6 +9,7 @@ export const discountSchema = z.object({
 export const serieSchema = z.object({
   id: idSchema,
   name: z.string(),
+  date: z.number(),
   products: productIDSchema.array(),
 })
 
