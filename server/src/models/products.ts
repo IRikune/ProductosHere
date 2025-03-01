@@ -52,10 +52,11 @@ export async function createProduct(
   product: PostProductType,
 ) {
   const productID = monotonicUlid()
+  const newProduct = { ...product, id: productID }
   const primaryKey = ["products", productID]
   const res = await kv.atomic()
     .check({ key: primaryKey, versionstamp: null })
-    .set(primaryKey, product)
+    .set(primaryKey, newProduct)
     .commit()
   return res
 }
