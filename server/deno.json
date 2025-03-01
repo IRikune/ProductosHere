@@ -4,7 +4,7 @@
     "zod": "npm:zod@^3.24.1"
   },
   "tasks": {
-    "start": "deno run --allow-net mod.ts"
+    "start": "deno run --allow-net --unstable-kv mod.ts"
   },
   "compilerOptions": {
     "jsx": "precompile",
