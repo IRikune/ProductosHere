@@ -13,9 +13,9 @@ interface KvProductsResult {
 type KvProductsResultMaybe = Promise<KvProductsResult>
 
 // add actual serie by default
-export const getManyProducts = async (
+export async function getManyProducts(
   { serie = "" }: getManyProductsOptions,
-): KvProductsResultMaybe => {
+): KvProductsResultMaybe {
   const primaryKey = [serie, "products"]
   const entries = kv.list<Product>({ prefix: primaryKey })
   const products: Product[] = []
@@ -24,5 +24,19 @@ export const getManyProducts = async (
     products.push(product)
   }
   const res: KvProductsResult = { ok: true, data: products }
+  return res
+}
+
+interface getProductOptions {
+  id: Product["id"]
+}
+
+export async function getProduct(
+  { id }: getProductOptions,
+): KvProductsResultMaybe {
+  const primaryKey = ["products", id]
+  const entry = await kv.get<Product>(primaryKey)
+  const product = entry.value
+  const res: KvProductsResult = { ok: true, data: product || [] }
   return res
 }
