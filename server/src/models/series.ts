@@ -8,10 +8,11 @@ import type {
   Serie,
 } from "../types/mod.ts"
 
-interface KvSerieResult {
-  ok: boolean
-  data?: Serie | Serie[]
-}
+type KvSerieResult =
+  | { ok: true; data: Serie }
+  | { ok: true; data: Serie[] }
+  | { ok: true }
+  | { ok: false; error?: string }
 
 type KvSerieResultMaybe = Promise<KvSerieResult>
 
@@ -30,12 +31,12 @@ export async function getManySeries(): KvSerieResultMaybe {
 export async function getSerie({ id }: GetSerieType): KvSerieResultMaybe {
   const primaryKey = ["series", id]
   const entry = await kv.get<Serie>(primaryKey)
-  const serie = entry.value
-  const res: KvSerieResult = { ok: true, data: serie || [] }
-  return res
+  return entry.value
+    ? { ok: true, data: entry.value }
+    : { ok: false, error: "Serie not found" }
 }
 
-export async function createSerie(serie: PostSerieType): KvSerieResultMaybe {
+export async function createSerie(serie: PostSerieType) {
   const serieID = monotonicUlid()
   const newSerie: Serie = { ...serie, id: serieID }
   const primaryKey = ["series", serieID]
@@ -59,10 +60,12 @@ export async function getLastSerie(): KvSerieResultMaybe {
   return { ok: false }
 }
 
-export async function updateSerie(serie: PutSerieType): KvSerieResultMaybe {
+export async function updateSerie(serie: PutSerieType) {
   const primaryKey = ["series", serie.id]
+  const current = await kv.get<Serie>(primaryKey)
   const res = await kv
     .atomic()
+    .check(current)
     .set(primaryKey, serie)
     .commit()
   return res
