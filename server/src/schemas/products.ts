@@ -1,10 +1,11 @@
 import { z } from "zod"
-import { idSchema } from "./common.ts"
+import { productIDSchema } from "./common.ts"
 
 export const productSchema = z.object({
-  id: idSchema,
+  id: productIDSchema,
   producer: z.string(),
   name: z.string(),
-  category: z.string(),
-  aproxPrice: z.number().positive(),
+  categories: z.string().array(),
+  description: z.string(),
+  price: z.number().positive(),
 })

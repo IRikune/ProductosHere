@@ -1,15 +1,27 @@
 import { z } from "zod"
-import { idSchema } from "./common.ts"
+import { idSchema, productIDSchema } from "./common.ts"
+
+const discountSchema = z.object({
+  forProducts: idSchema.array(),
+  discount: z.number().positive(),
+})
+
+const serieSchema = z.object({
+  id: idSchema,
+  name: z.string(),
+  products: productIDSchema.array(),
+})
 
 export const orderSchema = z.object({
   id: idSchema,
-  series: z.string(),
+  serie: serieSchema,
   createdAt: z.number(),
   expectedDate: z.number(),
-  expectedProducts: idSchema.array(),
+  expectedProducts: productIDSchema.array(),
   expectedAmount: z.number().positive(),
   deliveredDate: z.number().optional(),
-  deliveredProducts: idSchema.array().optional(),
+  deliveredProducts: productIDSchema.array().optional(),
   deliveredAmount: z.number().positive().optional(),
+  discounts: discountSchema.array(),
   status: z.enum(["pending", "delivered", "cancelled"]),
 })
