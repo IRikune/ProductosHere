@@ -14,3 +14,8 @@ export const productSchema = z.object({
 export const postProductSchema = productSchema.extend({
   id: z.never(),
 })
+
+export const putProductSchema = z.object({
+  id: productIDSchema,
+  product: productSchema,
+})

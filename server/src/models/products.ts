@@ -1,6 +1,10 @@
 import { monotonicUlid } from "@std/ulid"
 import { kv } from "../../mod.ts"
-import type { PostProductSchema, Product } from "../types/mod.ts"
+import type {
+  PostProductSchema,
+  Product,
+  PutProductSchema,
+} from "../types/mod.ts"
 import type { Serie as SerieType } from "../types/mod.ts"
 
 interface getManyProductsOptions {
@@ -44,11 +48,21 @@ export async function getProduct(
 
 export async function createProduct(
   product: PostProductSchema,
-): KvProductsResultMaybe {
+) {
   const productID = monotonicUlid()
   const primaryKey = ["products", productID]
   const res = await kv.atomic()
     .check({ key: primaryKey, versionstamp: null })
+    .set(primaryKey, product)
+    .commit()
+  return res
+}
+
+export async function updateProduct(
+  { id, product }: PutProductSchema,
+) {
+  const primaryKey = ["products", id]
+  const res = await kv.atomic()
     .set(primaryKey, product)
     .commit()
   return res
