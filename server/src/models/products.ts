@@ -40,3 +40,16 @@ export async function getProduct(
   const res: KvProductsResult = { ok: true, data: product || [] }
   return res
 }
+
+interface createProductOptions {
+  product: Product
+}
+
+export async function createProduct(product: Product): KvProductsResultMaybe {
+  const primaryKey = ["products", product.id]
+  const res = await kv.atomic()
+    .check({ key: primaryKey, versionstamp: null })
+    .set(primaryKey, product)
+    .commit()
+  return res
+}
