@@ -1,9 +1,11 @@
 import { monotonicUlid } from "@std/ulid"
 import { kv } from "../../mod.ts"
 import type {
-  PostProductSchema,
+  DeleteProductType,
+  GetProductType,
+  PostProductType,
   Product,
-  PutProductSchema,
+  PutProductType,
 } from "../types/mod.ts"
 import type { Serie as SerieType } from "../types/mod.ts"
 
@@ -37,7 +39,7 @@ interface getProductOptions {
 }
 
 export async function getProduct(
-  { id }: getProductOptions,
+  { id }: GetProductType,
 ): KvProductsResultMaybe {
   const primaryKey = ["products", id]
   const entry = await kv.get<Product>(primaryKey)
@@ -47,7 +49,7 @@ export async function getProduct(
 }
 
 export async function createProduct(
-  product: PostProductSchema,
+  product: PostProductType,
 ) {
   const productID = monotonicUlid()
   const primaryKey = ["products", productID]
@@ -59,11 +61,17 @@ export async function createProduct(
 }
 
 export async function updateProduct(
-  { id, product }: PutProductSchema,
+  { id, product }: PutProductType,
 ) {
   const primaryKey = ["products", id]
   const res = await kv.atomic()
     .set(primaryKey, product)
     .commit()
   return res
+}
+
+export async function deleteProduct({ id }: DeleteProductType) {
+  const primaryKey = ["products", id]
+  await kv.delete(primaryKey)
+  return { ok: true }
 }

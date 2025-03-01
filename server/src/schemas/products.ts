@@ -11,6 +11,10 @@ export const productSchema = z.object({
   price: z.number().positive(),
 }).strict()
 
+export const getProductSchema = z.object({
+  id: productIDSchema,
+})
+
 export const postProductSchema = productSchema.extend({
   id: z.never(),
 })
@@ -18,4 +22,8 @@ export const postProductSchema = productSchema.extend({
 export const putProductSchema = z.object({
   id: productIDSchema,
   product: productSchema,
+})
+
+export const deleteProductSchema = z.object({
+  id: productIDSchema,
 })

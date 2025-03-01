@@ -1,5 +1,9 @@
 import type { z } from "zod"
-import type { productSchema } from "../schemas/products.ts"
+import type {
+  deleteProductSchema,
+  getProductSchema,
+  productSchema,
+} from "../schemas/products.ts"
 import type { userSchema } from "../schemas/users.ts"
 import type { contractSchema } from "../schemas/contracts.ts"
 import type {
@@ -24,6 +28,10 @@ export type Serie = z.infer<typeof serieSchema>
 
 export type Discount = z.infer<typeof discountSchema>
 
-export type PostProductSchema = z.infer<typeof postProductSchema>
+export type GetProductType = z.infer<typeof getProductSchema>
 
-export type PutProductSchema = z.infer<typeof putProductSchema>
+export type PostProductType = z.infer<typeof postProductSchema>
+
+export type PutProductType = z.infer<typeof putProductSchema>
+
+export type DeleteProductType = z.infer<typeof deleteProductSchema>
