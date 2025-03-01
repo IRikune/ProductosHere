@@ -40,6 +40,14 @@ export async function createSerie(serie: Serie): KvSerieResultMaybe {
   return res
 }
 
+export async function getLastSerie(): KvSerieResultMaybe {
+  const manySeries = await getManySeries()
+  if (!manySeries.ok) return { ok: false }
+  const series = manySeries.data as Serie[]
+  const lastSerie = series.at(-1)
+  return { ok: true, data: lastSerie }
+}
+
 export async function updateSerie(serie: Serie): KvSerieResultMaybe {
   const primaryKey = ["series", serie.id]
   const res = await kv
