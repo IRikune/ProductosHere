@@ -17,12 +17,10 @@ export function LandingMenu() {
 function IsNotLoggedInMenu() {
     return (
         <>
-            <div class="hidden md:block">
-                <Button type="outlined" to="/login">Iniciar Sesión</Button>
-                <Button class="mx-2" type="filled" to="/signup">Registrarse
+            <div class="relative flex justify-center mt-2 items-center">
+                <Button class="hidden md:block" type="outlined" to="/login">Iniciar Sesión</Button>
+                <Button class="hidden md:block mr-3 ml-1" type="filled" to="/signup">Registrarse
                 </Button>
-            </div>
-            <div class="md:hidden">
                 <BurgerMenu />
             </div>
         </>

@@ -1,17 +1,43 @@
 ---
-import Layout from "./Layout.astro";
-import { Button } from "../components/preact/Button";
+import LandingBar from "../components/LandingBar.astro";
+import CommonHead from "../components/CommonHead.astro";
+import "@fontsource/amatic-sc";
+import "../styles/global.css";
+import Logo from "../components/Logo.astro";
+import { BurgerMenu } from "../components/preact/BurgerMenu";
 ---
 
-<Layout>
-    <header>
-        <nav>
-            <ul>
-                <li>
-                    <Button to="/">Home</Button>
-                </li>
+<!doctype html>
+<html lang="es">
+    <head>
+        <CommonHead title="ProductosHere" description="ProductosHere" />
+    </head>
+    <body>
+        <nav class="sticky top-0 z-50 font-light md:mx-20">
+            <ul class="flex justify-between items-center py-5 px-10">
+                <div>
+                    <a href="/">
+                        <Logo transition:name="logo" transition:persist />
+                    </a>
+                </div>
+                <div class="mt-2">
+                    <BurgerMenu class="absolute" client:idle />
+                </div>
             </ul>
         </nav>
-    </header>
-    <slot />
-</Layout>
+        <slot />
+    </body>
+</html>
+
+<style>
+    .landing-button {
+        display: none;
+    }
+    html,
+    body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #f4f2ed;
+    }
+</style>

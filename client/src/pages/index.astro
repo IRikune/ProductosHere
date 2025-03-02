@@ -6,14 +6,6 @@ import { Doodle } from "../components/decorations/Doodle";
 import { Highlight } from "../components/decorations/Highlight";
 ---
 
-<script>
-	import { isAuthenticated } from "../store/mod";
-	const $switchLogin = document.getElementById("switch-login");
-	$switchLogin?.addEventListener("click", () => {
-		isAuthenticated.value = !isAuthenticated.value;
-	});
-</script>
-
 <Layout>
 	<header
 		class="h-[80dvh] motion-preset-pulse-sm flex justify-center items-center"
@@ -31,7 +23,7 @@ import { Highlight } from "../components/decorations/Highlight";
 				emprendimiento. Y lo mejor, a crédito.
 			</p>
 			<footer class="mt-10">
-				<Button id="switch-login" type="outlined"
+				<Button class="mx-2" to="/login" type="outlined"
 					>Iniciar Sesión
 				</Button>
 				<Button type="filled" to="/signup">Registrarse</Button>

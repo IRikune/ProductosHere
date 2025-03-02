@@ -1,3 +1,3 @@
 import { signal } from "@preact/signals";
 
-export const isAuthenticated = signal(true);
+export const isAuthenticated = signal(false);
