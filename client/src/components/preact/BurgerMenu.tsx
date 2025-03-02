@@ -1,4 +1,5 @@
 import { type Signal, useSignal } from '@preact/signals';
+import { isAuthenticated } from '../../store/mod';
 import { Button } from './Button';
 import '../../assets/animations.css'
 
@@ -25,26 +26,52 @@ export function BurgerMenu({ class: className }: { class?: string }) {
     );
 }
 function Menu({ isOpen }: { isOpen: Signal<boolean> }) {
+    const publicRoutes = [
+        { to: '/', label: 'Inicio' },
+        { to: '/signup', label: 'Registrarse' },
+        { to: '/login', label: 'Iniciar Sesión' },
+        { to: '/about', label: 'Sobre Nosotros' },
+    ]
+    const privateRoutes = [
+        { to: '/', label: 'Inicio' },
+        { to: '/signup', label: 'Carrito' },
+        { to: '/signup', label: 'Pedidos' },
+        { to: '/login', label: 'Dashboard' },
+    ]
     return (
-        <div
+        <nav
             class={`
-                fixed bg-[#f4f2ed] left-0 w-dvw h-dvh -top-1 py-10 z-30 flex items-center justify-center flex-col starting:opacity-0 transition-all duration-300 ease-in-out transition-discrete
+                fixed bg-[#f4f2ed] left-0 w-dvw h-dvh -top-1 py-10 z-30 flex items-center justify-center flex-col starting:opacity-0 transition-all duration-300 ease-in-out transition-discrete *:list-none *:cursor-pointer
                 ${isOpen.value ? 'opacity-100 translate-0' : 'opacity-0 hidden'}`}>
-            <a href='/feed'>
-                <Button type='outlined' class='text-3xl my-2'>Feed</Button>
-            </a>
-            <a href='/games'>
-                <Button type='outlined' class='text-3xl my-2'>Games</Button>
-            </a>
-            <a href='/about'>
-                <Button type='outlined' class='text-3xl my-2'>About</Button>
-            </a>
-            <a href='/login'>
-                <Button type='outlined' class='text-2xl my-2'>Login</Button>
-            </a>
-            <a href='/signup'>
-                <Button type='filled' class='text-2xl my-2'>Sign Up</Button>
-            </a>
-        </div>
+            {
+                isAuthenticated.value
+                    ? privateRoutes.map(route => {
+                        return (
+                            <li class="my-3" key={route.label}>
+                                <Button
+                                    class='text-3xl'
+                                    type="outlined"
+                                    to={route.to}
+                                    key={route.label}>
+                                    {route.label}
+                                </Button>
+                            </li>
+                        )
+                    })
+                    : publicRoutes.map(route => {
+                        return (
+                            <li class="my-3" key={route.label}>
+                                <Button
+                                    class='text-3xl'
+                                    type="outlined"
+                                    to={route.to}
+                                    key={route.label}>
+                                    {route.label}
+                                </Button>
+                            </li>
+                        )
+                    })
+            }
+        </nav>
     )
 }
