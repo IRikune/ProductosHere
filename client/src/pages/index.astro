@@ -9,6 +9,14 @@ import CatImage from "../assets/cat.avif";
 import FrogImage from "../assets/frog.avif";
 ---
 
+<script>
+	import { isAuthenticated } from "../store/mod";
+	const $switchLogin = document.getElementById("switch-login");
+	$switchLogin?.addEventListener("click", () => {
+		isAuthenticated.value = !isAuthenticated.value;
+	});
+</script>
+
 <Layout>
 	<header
 		class="h-[80dvh] motion-preset-pulse-sm flex justify-center items-center"
@@ -26,7 +34,9 @@ import FrogImage from "../assets/frog.avif";
 				emprendimiento. Y lo mejor, a crédito.
 			</p>
 			<footer class="mt-10">
-				<Button type="outlined" to="/login">Iniciar Sesión</Button>
+				<Button id="switch-login" type="outlined"
+					>Iniciar Sesión
+				</Button>
 				<Button type="filled" to="/signup">Registrarse</Button>
 			</footer>
 		</section>

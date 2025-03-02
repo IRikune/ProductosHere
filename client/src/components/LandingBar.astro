@@ -1,7 +1,7 @@
 ---
 import Logo from "./Logo.astro";
 import { Button } from "./preact/Button";
-import { BurgerButton } from "./preact/BurgerButton";
+import { LandingMenu } from "./preact/LandingMenu";
 ---
 
 <nav class="sticky top-0 z-50 font-light md:mx-20">
@@ -11,13 +11,6 @@ import { BurgerButton } from "./preact/BurgerButton";
                 <Logo transition:name="logo" transition:persist />
             </a>
         </div>
-        <div class="hidden md:block">
-            <Button to="/">¿Quienes somos?</Button>
-            <Button type="outlined" to="/login">Iniciar Sesión</Button>
-            <Button class="" type="filled" to="/signup">Registrarse </Button>
-        </div>
-        <div class="md:hidden">
-            <BurgerButton client:idle />
-        </div>
+        <LandingMenu client:idle />
     </ul>
 </nav>

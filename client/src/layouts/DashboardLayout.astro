@@ -1,3 +1,17 @@
 ---
-
+import Layout from "./Layout.astro";
+import { Button } from "../components/preact/Button";
 ---
+
+<Layout>
+    <header>
+        <nav>
+            <ul>
+                <li>
+                    <Button to="/">Home</Button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <slot />
+</Layout>
