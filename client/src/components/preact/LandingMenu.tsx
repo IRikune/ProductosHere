@@ -1,4 +1,3 @@
-import { signal, effect } from "@preact/signals";
 import { isAuthenticated } from "../../store/mod";
 import { BurgerButton } from "./BurgerButton";
 import { Button } from "./Button";
@@ -33,7 +32,10 @@ function IsNotLoggedInMenu() {
 function IsLoggedInMenu() {
     return (
         <>
-            <div class="">
+            <div class="relative flex justify-center gap-10 mt-2 items-center">
+                <Button class="" type="filled" to="/dashboard">
+                    Dashboard
+                </Button>
                 <BurgerButton />
             </div>
         </>

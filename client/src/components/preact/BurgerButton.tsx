@@ -9,13 +9,13 @@ export function BurgerButton({ class: className }: { class?: string }) {
             <button
                 type="button"
                 onClick={() => { isOpen.value = !isOpen.value }}
-                class='cursor-pointer w-10 h-10 right-14 top-8 absolute rounded flex justify-center items-center transition duration-300 active:bg-neutral-200 z-30 overflow-hidden starting:opacity-0'>
+                class='cursor-pointer w-10 h-10 relative rounded flex justify-center items-center transition duration-300 active:bg-neutral-200 z-30 overflow-hidden starting:opacity-0 *:bg-black *:p-px'>
                 <div
-                    class={`rounded w-[80%] p-px bg-black self-start absolute mt-2 ${isOpen.value ? 'animation-top-bar-open' : 'animation-top-bar-close'}`} />
+                    class={`rounded w-[80%] self-start absolute mt-2 ${isOpen.value ? 'animation-top-bar-open' : 'animation-top-bar-close'}`} />
                 <div
-                    class={`rounded w-[80%] p-px bg-black absolute ${isOpen.value ? 'animation-middle-bar-open' : 'animation-middle-bar-close'}`} />
+                    class={`rounded w-[80%] absolute ${isOpen.value ? 'animation-middle-bar-open' : 'animation-middle-bar-close'}`} />
                 <div
-                    class={`rounded w-[80%] p-px bg-black self-end absolute mb-2 ${isOpen.value ? 'animation-bottom-bar-open' : 'animation-bottom-bar-close'} ${className}`}>
+                    class={`rounded w-[80%] self-end absolute mb-2 ${isOpen.value ? 'animation-bottom-bar-open' : 'animation-bottom-bar-close'} ${className}`}>
                 </div>
             </button>
             <div>
