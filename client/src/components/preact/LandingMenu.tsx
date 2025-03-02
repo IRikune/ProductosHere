@@ -1,5 +1,5 @@
 import { isAuthenticated } from "../../store/mod";
-import { BurgerButton } from "./BurgerButton";
+import { BurgerMenu } from "./BurgerMenu";
 import { Button } from "./Button";
 
 export function LandingMenu() {
@@ -23,7 +23,7 @@ function IsNotLoggedInMenu() {
                 </Button>
             </div>
             <div class="md:hidden">
-                <BurgerButton />
+                <BurgerMenu />
             </div>
         </>
     )
@@ -36,7 +36,7 @@ function IsLoggedInMenu() {
                 <Button class="" type="filled" to="/dashboard">
                     Dashboard
                 </Button>
-                <BurgerButton />
+                <BurgerMenu />
             </div>
         </>
     )
