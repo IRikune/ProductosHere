@@ -1,12 +1,9 @@
 ---
-import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import { Button } from "../components/preact/Button";
 import { Underline } from "../components/decorations/Underline";
 import { Doodle } from "../components/decorations/Doodle";
 import { Highlight } from "../components/decorations/Highlight";
-import CatImage from "../assets/cat.avif";
-import FrogImage from "../assets/frog.avif";
 ---
 
 <script>
@@ -44,7 +41,11 @@ import FrogImage from "../assets/frog.avif";
 			<div class="-mt-10 ml-10 absolute">
 				<Highlight class="w-20" />
 			</div>
-			<Image class="aspect-square w-full" src={CatImage} alt="cat" />
+			<img
+				class="aspect-square w-full"
+				src="../assets/cat.avif"
+				alt="cat"
+			/>
 		</aside>
 
 		<div class="absolute bottom-0 mb-10">
@@ -59,15 +60,7 @@ import FrogImage from "../assets/frog.avif";
 			<h1 class="mb-2 font-drawed text-5xl">¿Cómo trabajamos?</h1>
 			<Doodle class="w-80 fill-black" />
 		</div>
-		<main class="flex justify-around">
-			<div>
-				<Image
-					class="max-w-md sticky top-28 left-0"
-					src={FrogImage}
-					alt="frog"
-				/>
-			</div>
-		</main>
+		<main class="flex justify-around"></main>
 	</section>
 	<section class="h-dvh bg-black text-white"></section>
 </Layout>
