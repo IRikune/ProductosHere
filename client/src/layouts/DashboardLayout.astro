@@ -6,6 +6,7 @@ import LayoutGridIcon from "../components/icons/LayoutGridIcon.astro";
 import ListIcon from "../components/icons/ListIcon.astro";
 import Logo from "../components/Logo.astro";
 import CommonHead from "../components/CommonHead.astro";
+import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
 ---
 
 <!doctype html>
@@ -27,24 +28,37 @@ import CommonHead from "../components/CommonHead.astro";
             </header>
             <ul class="h-full flex-col justify-between flex text-3xl mt-20">
                 <div class="*:cursor-pointer *:b *:py-2 *:hover:bg-neutral-200">
-                    <li id="dashboard">
-                        <a class="flex items-center gap-2 border-l-4 px-3">
+                    <DashboardMenuItem client:load id="/dashboard">
+                        <a
+                            href="/dashboard"
+                            class="flex items-center gap-2 px-3"
+                        >
                             <AlignLeftIcon />
                             <span>Dashboard</span>
                         </a>
-                    </li>
-                    <li id="orders">
-                        <a class="flex items-center gap-2">
+                    </DashboardMenuItem>
+                    <DashboardMenuItem
+                        class="mx-1"
+                        client:load
+                        id="/dashboard/orders"
+                    >
+                        <a
+                            href="/dashboard/orders"
+                            class="flex items-center gap-3"
+                        >
                             <LayoutGridIcon />
                             <span>Mis pedidos</span>
                         </a>
-                    </li>
-                    <li id="" class="flex items-center gap-2">
-                        <a>
+                    </DashboardMenuItem>
+                    <DashboardMenuItem client:load id="/dashboard/contracts">
+                        <a
+                            href="/dashboard/contracts"
+                            class="flex items-center gap-2"
+                        >
                             <ListIcon />
                             <span> Contratos </span>
                         </a>
-                    </li>
+                    </DashboardMenuItem>
                 </div>
                 <div class="mb-10">
                     <li>
@@ -74,5 +88,3 @@ import CommonHead from "../components/CommonHead.astro";
         background-color: #f4f2ed;
     }
 </style>
-
-<script></script>
