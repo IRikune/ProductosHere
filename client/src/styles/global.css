@@ -7,6 +7,7 @@
     --animate-pulse-2: pulse-2 2s ease-in-out infinite;
     --animate-fade-in: fadeIn 1s ease-in forwards;
     --animate-fade-out: fadeOut 1s ease-in forwards;
+    --font-readable: "Grandstander", sans-serif;
 
     @keyframes wiggle {
         0%,
