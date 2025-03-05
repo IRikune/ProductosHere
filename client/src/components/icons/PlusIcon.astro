@@ -1,0 +1,29 @@
+---
+const { class: className, ...props } = Astro.props;
+---
+
+<span class={`${className}`} {...props}></span>
+<style>
+    span,
+    span::after {
+        display: block;
+        box-sizing: border-box;
+        background: currentColor;
+        border-radius: 10px;
+    }
+    span {
+        margin-top: -2px;
+        position: relative;
+        transform: scale(var(--ggs, 1));
+        width: 16px;
+        height: 2px;
+    }
+    span::after {
+        content: "";
+        position: absolute;
+        width: 2px;
+        height: 16px;
+        top: -7px;
+        left: 7px;
+    }
+</style>

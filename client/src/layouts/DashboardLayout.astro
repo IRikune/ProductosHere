@@ -4,6 +4,7 @@ import "../styles/global.css";
 import AlignLeftIcon from "../components/icons/AlignLeftIcon.astro";
 import LayoutGridIcon from "../components/icons/LayoutGridIcon.astro";
 import ListIcon from "../components/icons/ListIcon.astro";
+import PlusIcon from "../components/icons/PlusIcon.astro";
 import Logo from "../components/Logo.astro";
 import CommonHead from "../components/CommonHead.astro";
 import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
@@ -25,6 +26,12 @@ import UserIcon from "../components/icons/UserIcon.astro";
             </header>
             <ul class="h-full flex-col justify-between flex text-3xl">
                 <div class="*:cursor-pointer *:b *:py-2 *:hover:bg-neutral-200">
+                    <DashboardMenuItem client:load id="">
+                        <button class="cursor-pointer flex items-center gap-2">
+                            <PlusIcon />
+                            <span>Añadir Pedido</span>
+                        </button>
+                    </DashboardMenuItem>
                     <DashboardMenuItem client:load id="/dashboard">
                         <a
                             href="/dashboard"
