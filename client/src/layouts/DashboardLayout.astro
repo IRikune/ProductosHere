@@ -7,6 +7,7 @@ import ListIcon from "../components/icons/ListIcon.astro";
 import Logo from "../components/Logo.astro";
 import CommonHead from "../components/CommonHead.astro";
 import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
+import UserIcon from "../components/icons/UserIcon.astro";
 ---
 
 <!doctype html>
@@ -16,17 +17,13 @@ import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
     </head>
 
     <body class="h-dvh w-dvw flex overflow-hidden">
-        <aside class="h-full w-1/4 border-r border-neutral-700 font-drawed">
-            <header class="mt-2">
+        <aside class="h-full w-1/4 border-r border-neutral-300 font-drawed">
+            <header class="py-5 border-b border-neutral-400">
                 <a href="/">
-                    <Logo
-                        class="text-center"
-                        transition:name="logo"
-                        transition:persist
-                    />
+                    <Logo class="text-center" transition:name="logo" />
                 </a>
             </header>
-            <ul class="h-full flex-col justify-between flex text-3xl mt-20">
+            <ul class="h-full flex-col justify-between flex text-3xl">
                 <div class="*:cursor-pointer *:b *:py-2 *:hover:bg-neutral-200">
                     <DashboardMenuItem client:load id="/dashboard">
                         <a
@@ -38,7 +35,7 @@ import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
                         </a>
                     </DashboardMenuItem>
                     <DashboardMenuItem
-                        class="mx-1"
+                        class="px-4"
                         client:load
                         id="/dashboard/orders"
                     >
@@ -46,7 +43,9 @@ import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
                             href="/dashboard/orders"
                             class="flex items-center gap-3"
                         >
-                            <LayoutGridIcon />
+                            <LayoutGridIcon
+                                class="transition duration-300 group-hover:rotate-90 scale-125"
+                            />
                             <span>Mis pedidos</span>
                         </a>
                     </DashboardMenuItem>
@@ -55,15 +54,23 @@ import { DashboardMenuItem } from "../components/preact/DashboardMenuItem";
                             href="/dashboard/contracts"
                             class="flex items-center gap-2"
                         >
-                            <ListIcon />
+                            <ListIcon
+                                class="group-hover:-translate-y-0.5 transition duration-300"
+                            />
                             <span> Contratos </span>
                         </a>
                     </DashboardMenuItem>
                 </div>
-                <div class="mb-10">
-                    <li>
-                        <a>Perfil</a>
-                    </li>
+                <div class="mb-20">
+                    <DashboardMenuItem id="/dashboard/profile">
+                        <a
+                            href="/dashboard/profile"
+                            class="flex items-center gap-2"
+                        >
+                            <UserIcon class="group-hover:animate-wiggle" />
+                            <span>Perfil</span>
+                        </a>
+                    </DashboardMenuItem>
                 </div>
             </ul>
         </aside>

@@ -17,7 +17,7 @@ export function DashboardMenuItem({ id, children, class: className }: Props) {
     return (
         <>
             <li
-                class={`hover:bg-neutral-200 transition duration-300 px-3 py-2 ${isActive.value && "bg-neutral-200 border-l-4"} ${className}`}
+                class={`group cursor-pointer hover:bg-neutral-200 transition duration-300 px-3 py-2 ${isActive.value && "bg-neutral-200 border-l-4"} ${className}`}
                 id={id}>
                 {children}
             </li>
