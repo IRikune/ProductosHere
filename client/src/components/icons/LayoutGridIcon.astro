@@ -1,0 +1,30 @@
+<span class="gg-align-left"></span>
+
+<style>
+    span {
+        transform: scale(var(--ggs, 1));
+    }
+    span,
+    span::after,
+    span::before {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        width: 10px;
+        height: 10px;
+    }
+    span::after,
+    span::before {
+        content: "";
+        position: absolute;
+        height: 4px;
+        border-left: 4px solid;
+        border-right: 4px solid;
+    }
+    span::before {
+        top: 0;
+    }
+    span::after {
+        bottom: 0;
+    }
+</style>

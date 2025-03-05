@@ -2,6 +2,7 @@
 import "@fontsource/amatic-sc";
 import "../styles/global.css";
 import AlignLeftIcon from "../components/icons/AlignLeftIcon.astro";
+import LayoutGridIcon from "../components/icons/LayoutGridIcon.astro";
 import Logo from "../components/Logo.astro";
 import { BurgerMenu } from "../components/preact/BurgerMenu";
 import { Button } from "../components/preact/Button";
@@ -34,21 +35,24 @@ import CommonHead from "../components/CommonHead.astro";
                 <ul>
                     <div>
                         <li>
-                            <Button class="flex items-center gap-2">
+                            <a class="flex items-center gap-2">
                                 <AlignLeftIcon />
                                 <span>Dashboard</span>
-                            </Button>
+                            </a>
                         </li>
                         <li>
-                            <Button>Mis pedidos</Button>
+                            <a class="flex items-center gap-2">
+                                <LayoutGridIcon />
+                                <span>Mis pedidos</span>
+                            </a>
                         </li>
                         <li>
-                            <Button>Contratos</Button>
+                            <a>Contratos</a>
                         </li>
                     </div>
                     <div>
                         <li>
-                            <Button>Perfil</Button>
+                            <a>Perfil</a>
                         </li>
                     </div>
                 </ul>

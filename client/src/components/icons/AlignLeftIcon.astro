@@ -1,7 +1,7 @@
-<span class="gg-align-left"></span>
+<span></span>
 
 <style>
-    .gg-align-left {
+    span {
         box-sizing: border-box;
         position: relative;
         display: block;
@@ -11,8 +11,8 @@
         transform: scale(var(--ggs, 1));
         margin-left: -4px;
     }
-    .gg-align-left::after,
-    .gg-align-left::before {
+    span::after,
+    span::before {
         content: "";
         display: block;
         box-sizing: border-box;
@@ -23,7 +23,7 @@
         left: 2px;
         top: 1px;
     }
-    .gg-align-left::after {
+    span::after {
         width: 6px;
         top: 7px;
         opacity: 0.5;
