@@ -5,8 +5,6 @@ import AlignLeftIcon from "../components/icons/AlignLeftIcon.astro";
 import LayoutGridIcon from "../components/icons/LayoutGridIcon.astro";
 import ListIcon from "../components/icons/ListIcon.astro";
 import Logo from "../components/Logo.astro";
-import { BurgerMenu } from "../components/preact/BurgerMenu";
-import { Button } from "../components/preact/Button";
 import CommonHead from "../components/CommonHead.astro";
 ---
 
@@ -17,22 +15,8 @@ import CommonHead from "../components/CommonHead.astro";
     </head>
 
     <body class="h-dvh w-dvw flex overflow-hidden">
-        <!-- <header>
-            <nav class="fixed top-0 z-50 font-light md:mx-20">
-                <ul class="flex justify-between items-center py-5 px-10">
-                    <div>
-                        <a href="/">
-                            <Logo transition:name="logo" transition:persist />
-                        </a>
-                    </div>
-                    <div class="mt-2">
-                        <BurgerMenu class="absolute" client:idle />
-                    </div>
-                </ul>
-            </nav>
-        </header> -->
-        <aside class="h-full w-1/4 bg-yellow-100">
-            <header>
+        <aside class="h-full w-1/4 border-r border-neutral-700 font-drawed">
+            <header class="mt-2">
                 <a href="/">
                     <Logo
                         class="text-center"
@@ -41,23 +25,25 @@ import CommonHead from "../components/CommonHead.astro";
                     />
                 </a>
             </header>
-            <ul class="h-full flex-col justify-between flex">
-                <div class="*:cursor-pointer">
-                    <li>
-                        <a class="flex items-center gap-2">
+            <ul class="h-full flex-col justify-between flex text-3xl mt-20">
+                <div class="*:cursor-pointer *:b *:py-2 *:hover:bg-neutral-200">
+                    <li id="dashboard">
+                        <a class="flex items-center gap-2 border-l-4 px-3">
                             <AlignLeftIcon />
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li>
+                    <li id="orders">
                         <a class="flex items-center gap-2">
                             <LayoutGridIcon />
                             <span>Mis pedidos</span>
                         </a>
                     </li>
-                    <li class="flex items-center gap-2">
-                        <ListIcon />
-                        <a>Contratos</a>
+                    <li id="" class="flex items-center gap-2">
+                        <a>
+                            <ListIcon />
+                            <span> Contratos </span>
+                        </a>
                     </li>
                 </div>
                 <div class="mb-10">
@@ -67,7 +53,7 @@ import CommonHead from "../components/CommonHead.astro";
                 </div>
             </ul>
         </aside>
-        <main class="bg-violet-100 w-full overflow-scroll">
+        <main class="w-full overflow-scroll">
             <h1 class="text-8xl">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
                 harum at suscipit quibusdam rerum dolorum non molestiae, saepe
@@ -88,3 +74,5 @@ import CommonHead from "../components/CommonHead.astro";
         background-color: #f4f2ed;
     }
 </style>
+
+<script></script>
