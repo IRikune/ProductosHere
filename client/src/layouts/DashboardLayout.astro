@@ -1,11 +1,11 @@
 ---
-import LandingBar from "../components/LandingBar.astro";
-import CommonHead from "../components/CommonHead.astro";
 import "@fontsource/amatic-sc";
 import "../styles/global.css";
+import AlignLeftIcon from "../components/icons/AlignLeftIcon.astro";
 import Logo from "../components/Logo.astro";
 import { BurgerMenu } from "../components/preact/BurgerMenu";
 import { Button } from "../components/preact/Button";
+import CommonHead from "../components/CommonHead.astro";
 ---
 
 <!doctype html>
@@ -34,10 +34,10 @@ import { Button } from "../components/preact/Button";
                 <ul>
                     <div>
                         <li>
-                            <Button>Dashboard</Button>
-                        </li>
-                        <li>
-                            <Button>Feed</Button>
+                            <Button class="flex items-center gap-2">
+                                <AlignLeftIcon />
+                                <span>Dashboard</span>
+                            </Button>
                         </li>
                         <li>
                             <Button>Mis pedidos</Button>
@@ -59,9 +59,6 @@ import { Button } from "../components/preact/Button";
 </html>
 
 <style>
-    .landing-button {
-        display: none;
-    }
     html,
     body {
         margin: 0;
