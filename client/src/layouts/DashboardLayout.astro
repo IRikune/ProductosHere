@@ -3,6 +3,7 @@ import "@fontsource/amatic-sc";
 import "../styles/global.css";
 import AlignLeftIcon from "../components/icons/AlignLeftIcon.astro";
 import LayoutGridIcon from "../components/icons/LayoutGridIcon.astro";
+import ListIcon from "../components/icons/ListIcon.astro";
 import Logo from "../components/Logo.astro";
 import { BurgerMenu } from "../components/preact/BurgerMenu";
 import { Button } from "../components/preact/Button";
@@ -15,9 +16,9 @@ import CommonHead from "../components/CommonHead.astro";
         <CommonHead title="ProductosHere" description="ProductosHere" />
     </head>
 
-    <body>
-        <header>
-            <nav class="sticky top-0 z-50 font-light md:mx-20">
+    <body class="h-dvh w-dvw flex overflow-hidden">
+        <!-- <header>
+            <nav class="fixed top-0 z-50 font-light md:mx-20">
                 <ul class="flex justify-between items-center py-5 px-10">
                     <div>
                         <a href="/">
@@ -29,35 +30,51 @@ import CommonHead from "../components/CommonHead.astro";
                     </div>
                 </ul>
             </nav>
-        </header>
-        <section>
-            <aside>
-                <ul>
-                    <div>
-                        <li>
-                            <a class="flex items-center gap-2">
-                                <AlignLeftIcon />
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="flex items-center gap-2">
-                                <LayoutGridIcon />
-                                <span>Mis pedidos</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a>Contratos</a>
-                        </li>
-                    </div>
-                    <div>
-                        <li>
-                            <a>Perfil</a>
-                        </li>
-                    </div>
-                </ul>
-            </aside>
-        </section>
+        </header> -->
+        <aside class="h-full w-1/4 bg-yellow-100">
+            <header>
+                <a href="/">
+                    <Logo
+                        class="text-center"
+                        transition:name="logo"
+                        transition:persist
+                    />
+                </a>
+            </header>
+            <ul class="h-full flex-col justify-between flex">
+                <div class="*:cursor-pointer">
+                    <li>
+                        <a class="flex items-center gap-2">
+                            <AlignLeftIcon />
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="flex items-center gap-2">
+                            <LayoutGridIcon />
+                            <span>Mis pedidos</span>
+                        </a>
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <ListIcon />
+                        <a>Contratos</a>
+                    </li>
+                </div>
+                <div class="mb-10">
+                    <li>
+                        <a>Perfil</a>
+                    </li>
+                </div>
+            </ul>
+        </aside>
+        <main class="bg-violet-100 w-full overflow-scroll">
+            <h1 class="text-8xl">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. A
+                harum at suscipit quibusdam rerum dolorum non molestiae, saepe
+                hic sit dignissimos qui quos! Mollitia libero recusandae nulla,
+                impedit quod iusto.
+            </h1>
+        </main>
         <slot />
     </body>
 </html>
