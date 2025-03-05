@@ -23,7 +23,7 @@ export function Button({ disabled, type = "underline", to, children, class: clas
             href={to}
             id={id}
             disabled={disabled}
-            className={`${styles[type]} ${className}`}>
+            className={`cursor-pointer ${styles[type]} ${className}`}>
             {children}
         </Tag>);
 }

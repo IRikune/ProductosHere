@@ -1,3 +1,4 @@
 .vscode
 .env
 deno.lock
+.DS_Store

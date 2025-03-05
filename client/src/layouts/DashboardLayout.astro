@@ -5,6 +5,7 @@ import "@fontsource/amatic-sc";
 import "../styles/global.css";
 import Logo from "../components/Logo.astro";
 import { BurgerMenu } from "../components/preact/BurgerMenu";
+import { Button } from "../components/preact/Button";
 ---
 
 <!doctype html>
@@ -12,19 +13,47 @@ import { BurgerMenu } from "../components/preact/BurgerMenu";
     <head>
         <CommonHead title="ProductosHere" description="ProductosHere" />
     </head>
+
     <body>
-        <nav class="sticky top-0 z-50 font-light md:mx-20">
-            <ul class="flex justify-between items-center py-5 px-10">
-                <div>
-                    <a href="/">
-                        <Logo transition:name="logo" transition:persist />
-                    </a>
-                </div>
-                <div class="mt-2">
-                    <BurgerMenu class="absolute" client:idle />
-                </div>
-            </ul>
-        </nav>
+        <header>
+            <nav class="sticky top-0 z-50 font-light md:mx-20">
+                <ul class="flex justify-between items-center py-5 px-10">
+                    <div>
+                        <a href="/">
+                            <Logo transition:name="logo" transition:persist />
+                        </a>
+                    </div>
+                    <div class="mt-2">
+                        <BurgerMenu class="absolute" client:idle />
+                    </div>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <aside>
+                <ul>
+                    <div>
+                        <li>
+                            <Button>Dashboard</Button>
+                        </li>
+                        <li>
+                            <Button>Feed</Button>
+                        </li>
+                        <li>
+                            <Button>Mis pedidos</Button>
+                        </li>
+                        <li>
+                            <Button>Contratos</Button>
+                        </li>
+                    </div>
+                    <div>
+                        <li>
+                            <Button>Perfil</Button>
+                        </li>
+                    </div>
+                </ul>
+            </aside>
+        </section>
         <slot />
     </body>
 </html>
